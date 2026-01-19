@@ -2,22 +2,19 @@ site_name: MacedonIA Docs
 theme:
   name: material
   palette:
-    # Cambiar a modo oscuro automáticamente según preferencias del sistema
     scheme: preference
     primary: teal
     accent: purple
-    # Abre los menús automáticamente
+    
   features:
-    - navigation.tabs        # Pone el menú arriba en pestañas (muy pro)
-    - navigation.sections    # Agrupa las secciones en el lateral
-    - search.suggest         # Sugerencias mientras buscas
-    - search.highlight       # Resalta lo que buscas
+    - navigation.tabs        
+    - navigation.sections   
+    - search.suggest        
 
-# Extensiones para que el Markdown se vea mejor
   markdown_extensions:
-    - admonition               # Para poner notas tipo "Tip" o "Warning"
-    - pymdownx.highlight       # Para colorear código
-    - pymdownx.superfences     # Para bloques de código avanzados
+    - admonition               
+    - pymdownx.highlight       
+    - pymdownx.superfences      
 nav:
   - Inicio: index.md
   - Arquitectura:
