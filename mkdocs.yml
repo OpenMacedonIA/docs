@@ -15,7 +15,7 @@ theme:
     - admonition               
     - pymdownx.highlight       
     - pymdownx.superfences      
-nav:
+  nav:
   - Inicio: index.md
   - Arquitectura:
     - 🍉 Core (Watermelon): core/index.md
