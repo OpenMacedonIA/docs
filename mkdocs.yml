@@ -1,3 +1,21 @@
-site_name: My Docs
+site_name: MacedonIA Docs 🥗
 theme:
   name: material
+  palette:
+    # Cambiar a modo oscuro automáticamente según preferencias del sistema
+    scheme: preference
+    primary: teal
+    accent: purple
+  features:
+    - navigation.expand # Abre los menús automáticamente
+
+nav:
+  - Inicio: index.md
+  - Arquitectura:
+    - 🍉 Core (Watermelon): core/index.md
+    - 🍇 Network (Blackberry): network/index.md
+    - 🧠 IA (Walnut): ai/index.md
+    - 🍊 Web (Tangerine): web/index.md
+  - Extensión:
+    - 🫐 Skills (Blueberries): skills/index.md
+    - 🍒 Plugins (Cherry): plugins/index.md
