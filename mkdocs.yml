@@ -1,4 +1,4 @@
-site_name: MacedonIA Docs 🥗
+site_name: MacedonIA Docs
 theme:
   name: material
   palette:
@@ -16,6 +16,7 @@ nav:
     - 🍇 Network (Blackberry): network/index.md
     - 🧠 IA (Walnut): ai/index.md
     - 🍊 Web (Tangerine): web/index.md
-  - Extensión:
+  - Extensiones:
     - 🫐 Skills (Blueberries): skills/index.md
     - 🍒 Plugins (Cherry): plugins/index.md
+  - Extras: 
