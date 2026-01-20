@@ -21,19 +21,33 @@ theme:
     - Manual de Usuario: guides/user_manual.md
     - Despliegue Técnico: guides/deployment.md
     - Resolución de Problemas: guides/troubleshooting.md
+    - Base de Conocimiento: guides/knowledge.md
+    - Cliente Android: guides/android_client.md
   - Administración:
     - Gestión del Sistema: admin/management.md
     - Seguridad: admin/security.md
+    - Base de Datos de Ataques: admin/attack_db.md
   - Arquitectura:
     - 🍉 Core (Watermelon): core/index.md
+    - Información del Sistema: core/system_info.md
     - 🍇 Network (Blackberry): network/index.md
+    - Nodos MNB: network/mnb.md
     - 🧠 IA (Walnut): ai/index.md
+    - Arquitectura Cerebral: ai/brain_architecture.md
+    - Modelo MANGO: ai/mango.md
+    - Reconocimiento de Voz (Whisper): ai/whisper.md
+    - Personalidad (TIO): ai/personality.md
     - 🍊 Web (Tangerine): web/index.md
+    - Web UI Roadmap: web/roadmap.md
   - Extensiones:
     - 🫐 Skills (Blueberries): skills/index.md
+    - Skills Roadmap: skills/roadmap.md
     - 🍒 Plugins (Cherry): plugins/index.md
   - Referencia:
     - Glosario: reference/glossary.md
     - Pruebas Realizadas: reference/testing.md
     - Retos de Desarrollo: reference/challenges.md
-    - Roadmap: reference/roadmap.md
+    - Roadmap Global: reference/roadmap.md
+    - Conclusiones: reference/conclusions.md
+    - Bibliografía: reference/bibliography.md
+    - Contexto Empresarial: reference/business_context.md

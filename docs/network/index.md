@@ -20,14 +20,14 @@ Los agentes envían mensajes en formato **JSON** a TIO.
 Datos periódicos de estado. TIO muestra una notificación visual (Pop-up Azul).
 ```json
 {
-    "agent": "salon_pi",
-    "type": "telemetry",
-    "data": {
-        "temp": 24.5,
-        "humidity": 60,
-        "cpu": 15.2,
-        "status": "online"
-    }
+ "agent": "salon_pi",
+ "type": "telemetry",
+ "data": {
+ "temp": 24.5,
+ "humidity": 60,
+ "cpu": 15.2,
+ "status": "online"
+ }
 }
 ```
 
@@ -35,12 +35,12 @@ Datos periódicos de estado. TIO muestra una notificación visual (Pop-up Azul).
 Eventos críticos. TIO interrumpe, habla por voz y muestra una alerta roja.
 ```json
 {
-    "agent": "puerta_entrada",
-    "type": "alert",
-    "data": {
-        "msg": "Movimiento detectado en la entrada",
-        "level": "critical"
-    }
+ "agent": "puerta_entrada",
+ "type": "alert",
+ "data": {
+ "msg": "Movimiento detectado en la entrada",
+ "level": "critical"
+ }
 }
 ```
 
@@ -48,17 +48,17 @@ Eventos críticos. TIO interrumpe, habla por voz y muestra una alerta roja.
 
 ## 2. Implementación en TIO (Servidor)
 
-TIO (`NeoCore.py`) ejecuta dos gestores en segundo plano:
+TIO (`WatermelonD.py`) ejecuta dos gestores en segundo plano:
 
 1. **`MQTTManager`**:
-    * Se conecta al broker local (Mosquitto).
-    * Se suscribe a `tio/agents/#`.
-    * Gestiona la reconexión automática.
+ * Se conecta al broker local (Mosquitto).
+ * Se suscribe a `tio/agents/#`.
+ * Gestiona la reconexión automática.
 
 2. **`BluetoothManager`**:
-    * Abre un socket servidor RFCOMM en el **Puerto 1**.
-    * Espera conexiones entrantes de agentes emparejados.
-    * Inyecta los mensajes recibidos en la misma cola de eventos que MQTT.
+ * Abre un socket servidor RFCOMM en el **Puerto 1**.
+ * Espera conexiones entrantes de agentes emparejados.
+ * Inyecta los mensajes recibidos en la misma cola de eventos que MQTT.
 
 ---
 
