@@ -17,6 +17,13 @@ theme:
     - pymdownx.superfences      
   nav:
   - Inicio: index.md
+  - Guías:
+    - Manual de Usuario: guides/user_manual.md
+    - Despliegue Técnico: guides/deployment.md
+    - Resolución de Problemas: guides/troubleshooting.md
+  - Administración:
+    - Gestión del Sistema: admin/management.md
+    - Seguridad: admin/security.md
   - Arquitectura:
     - 🍉 Core (Watermelon): core/index.md
     - 🍇 Network (Blackberry): network/index.md
@@ -25,4 +32,8 @@ theme:
   - Extensiones:
     - 🫐 Skills (Blueberries): skills/index.md
     - 🍒 Plugins (Cherry): plugins/index.md
-  - Extras: 
+  - Referencia:
+    - Glosario: reference/glossary.md
+    - Pruebas Realizadas: reference/testing.md
+    - Retos de Desarrollo: reference/challenges.md
+    - Roadmap: reference/roadmap.md
