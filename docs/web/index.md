@@ -1,6 +1,6 @@
 # NEOPapaya Web Interface (v3.0)
 
-La interfaz web de **NEOPapaya v3.0** ha sido rediseñada para ser **independiente**, **robusta** y **personalizable**. Funciona como un cliente separado que se conecta a la API de `NeoCore`.
+La interfaz web de **WatermelonD v3.0** ha sido rediseñada para ser **independiente**, **robusta** y **personalizable**. Funciona como un cliente separado que se conecta a la API de `NeoCore`.
 
 ## Características Generales
 

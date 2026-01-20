@@ -1,8 +1,9 @@
-# Resumen del Proyecto NEOPapaya Nano
+# Resumen del proyecto WatermelonD
 
 ## Estructura del Proyecto
+
 ```
-TIO_AI/
+WatermelonD/
 ├── ROADMAP.md
 ├── walkthrough.md
 ├── README.md
@@ -14,7 +15,7 @@ TIO_AI/
 │   ├── conf.py
 │   └── training_data/
 ├── resources/
-│   ├── NB/
+│   ├── Blue/
 │   │   ├── bro_bridge.py
 │   │   ├── install_nb.sh
 │   │   ├── README.md
@@ -118,6 +119,7 @@ TIO_AI/
 ```
 
 ## Estadísticas Generales
+
 - **Total Líneas de Código:** 7217
 - **Total Clases:** 39
 - **Total Funciones:** 330
@@ -125,6 +127,7 @@ TIO_AI/
 - **Total TODOs/FIXMEs:** 1
 
 ## Dependencias (requirements.txt)
+
 - python-vlc
 - numpy
 - vosk
@@ -145,11 +148,13 @@ TIO_AI/
 - pychromecast
 
 ## Tareas Pendientes (TODOs/FIXMEs)
+
 - [resources/tools/analyze_code.py] "todos": [line.strip() for line in lines if "# TODO" in line or "# FIXME" in line]
 
 ## Detalle por Archivo
 
 ### NeoCore.py
+
 - **Líneas:** 486
 - **Clases:** 1
   - `class NeoCore`
@@ -177,6 +182,7 @@ TIO_AI/
 ---
 
 ### modules/database.py
+
 - **Líneas:** 478
 - **Clases:** 1
   - `class DatabaseManager`
@@ -213,6 +219,7 @@ TIO_AI/
 ---
 
 ### modules/web_admin.py
+
 - **Líneas:** 439
 - **Clases:** 0
 - **Funciones:** 38
@@ -259,6 +266,7 @@ TIO_AI/
 ---
 
 ### install.sh
+
 - **Líneas:** 250
 - **Clases:** 0
 - **Funciones:** 0
@@ -267,6 +275,7 @@ TIO_AI/
 ---
 
 ### modules/sysadmin.py
+
 - **Líneas:** 194
 - **Clases:** 1
   - `class SysAdminManager`
@@ -286,6 +295,7 @@ TIO_AI/
 ---
 
 ### modules/brain.py
+
 - **Líneas:** 183
 - **Clases:** 1
   - `class Brain`
@@ -305,6 +315,7 @@ TIO_AI/
 ---
 
 ### resources/tools/download_vosk_model.py
+
 - **Líneas:** 180
 - **Clases:** 0
 - **Funciones:** 6
@@ -319,6 +330,7 @@ TIO_AI/
 ---
 
 ### modules/date_parser.py
+
 - **Líneas:** 172
 - **Clases:** 0
 - **Funciones:** 3
@@ -330,6 +342,7 @@ TIO_AI/
 ---
 
 ### resources/tools/analyze_code.py
+
 - **Líneas:** 167
 - **Clases:** 0
 - **Funciones:** 4
@@ -343,6 +356,7 @@ TIO_AI/
 ---
 
 ### modules/vision.py
+
 - **Líneas:** 161
 - **Clases:** 2
   - `class FaceDB`
@@ -363,6 +377,7 @@ TIO_AI/
 ---
 
 ### modules/guard.py
+
 - **Líneas:** 152
 - **Clases:** 1
   - `class Guard`
@@ -381,6 +396,7 @@ TIO_AI/
 ---
 
 ### resources/tools/optimize_whisper.py
+
 - **Líneas:** 150
 - **Clases:** 0
 - **Funciones:** 4
@@ -393,6 +409,7 @@ TIO_AI/
 ---
 
 ### resources/NB/bro_agent.py
+
 - **Líneas:** 149
 - **Clases:** 1
   - `class BroAgent`
@@ -410,6 +427,7 @@ TIO_AI/
 ---
 
 ### modules/speaker.py
+
 - **Líneas:** 145
 - **Clases:** 1
   - `class Speaker`
@@ -425,6 +443,7 @@ TIO_AI/
 ---
 
 ### resources/tools/train_chat.py
+
 - **Líneas:** 137
 - **Clases:** 0
 - **Funciones:** 3
@@ -436,6 +455,7 @@ TIO_AI/
 ---
 
 ### modules/network.py
+
 - **Líneas:** 131
 - **Clases:** 1
   - `class NetworkManager`
@@ -453,6 +473,7 @@ TIO_AI/
 ---
 
 ### modules/voice_manager.py
+
 - **Líneas:** 122
 - **Clases:** 1
   - `class VoiceManager`
@@ -469,6 +490,7 @@ TIO_AI/
 ---
 
 ### modules/ssh_manager.py
+
 - **Líneas:** 119
 - **Clases:** 1
   - `class SSHManager`
@@ -487,6 +509,7 @@ TIO_AI/
 ---
 
 ### resources/tools/seed_knowledge.py
+
 - **Líneas:** 112
 - **Clases:** 0
 - **Funciones:** 0
@@ -495,6 +518,7 @@ TIO_AI/
 ---
 
 ### resources/NB/bro_bridge.py
+
 - **Líneas:** 110
 - **Clases:** 1
   - `class BroBridge`
@@ -513,6 +537,7 @@ TIO_AI/
 ---
 
 ### resources/experiments/finetune_tio.py
+
 - **Líneas:** 110
 - **Clases:** 0
 - **Funciones:** 1
@@ -522,6 +547,7 @@ TIO_AI/
 ---
 
 ### modules/dashboard_data.py
+
 - **Líneas:** 99
 - **Clases:** 1
   - `class DashboardDataManager`
@@ -538,6 +564,7 @@ TIO_AI/
 ---
 
 ### modules/skills/organizer.py
+
 - **Líneas:** 99
 - **Clases:** 1
   - `class OrganizerSkill`
@@ -554,6 +581,7 @@ TIO_AI/
 ---
 
 ### resources/NB/test_simulation.py
+
 - **Líneas:** 96
 - **Clases:** 0
 - **Funciones:** 3
@@ -565,6 +593,7 @@ TIO_AI/
 ---
 
 ### resources/experiments/ingest_conversations.py
+
 - **Líneas:** 91
 - **Clases:** 0
 - **Funciones:** 1
@@ -574,6 +603,7 @@ TIO_AI/
 ---
 
 ### modules/skills/system.py
+
 - **Líneas:** 91
 - **Clases:** 1
   - `class SystemSkill`
@@ -590,6 +620,7 @@ TIO_AI/
 ---
 
 ### modules/wifi_manager.py
+
 - **Líneas:** 89
 - **Clases:** 1
   - `class WifiManager`
@@ -602,6 +633,7 @@ TIO_AI/
 ---
 
 ### resources/tools/download_big_model.py
+
 - **Líneas:** 87
 - **Clases:** 0
 - **Funciones:** 3
@@ -613,6 +645,7 @@ TIO_AI/
 ---
 
 ### resources/NB/install_nb.sh
+
 - **Líneas:** 86
 - **Clases:** 0
 - **Funciones:** 0
@@ -621,6 +654,7 @@ TIO_AI/
 ---
 
 ### modules/alarms.py
+
 - **Líneas:** 85
 - **Clases:** 1
   - `class AlarmManager`
@@ -638,6 +672,7 @@ TIO_AI/
 ---
 
 ### modules/chat.py
+
 - **Líneas:** 84
 - **Clases:** 1
   - `class ChatManager`
@@ -650,6 +685,7 @@ TIO_AI/
 ---
 
 ### modules/cast_manager.py
+
 - **Líneas:** 83
 - **Clases:** 1
   - `class CastManager`
@@ -664,6 +700,7 @@ TIO_AI/
 ---
 
 ### modules/file_manager.py
+
 - **Líneas:** 83
 - **Clases:** 1
   - `class FileManager`
@@ -678,6 +715,7 @@ TIO_AI/
 ---
 
 ### modules/ai_engine.py
+
 - **Líneas:** 82
 - **Clases:** 1
   - `class GemmaEngine`
@@ -690,6 +728,7 @@ TIO_AI/
 ---
 
 ### resources/tools/install_piper.py
+
 - **Líneas:** 81
 - **Clases:** 0
 - **Funciones:** 3
@@ -701,6 +740,7 @@ TIO_AI/
 ---
 
 ### modules/sherlock.py
+
 - **Líneas:** 81
 - **Clases:** 1
   - `class Sherlock`
@@ -713,6 +753,7 @@ TIO_AI/
 ---
 
 ### modules/skills/media.py
+
 - **Líneas:** 80
 - **Clases:** 1
   - `class MediaSkill`
@@ -725,6 +766,7 @@ TIO_AI/
 ---
 
 ### modules/calendar.py
+
 - **Líneas:** 76
 - **Clases:** 1
   - `class CalendarManager`
@@ -741,6 +783,7 @@ TIO_AI/
 ---
 
 ### resources/MNB/PiZero/agent.py
+
 - **Líneas:** 75
 - **Clases:** 0
 - **Funciones:** 4
@@ -753,6 +796,7 @@ TIO_AI/
 ---
 
 ### modules/skills/content.py
+
 - **Líneas:** 75
 - **Clases:** 1
   - `class ContentSkill`
@@ -767,6 +811,7 @@ TIO_AI/
 ---
 
 ### resources/experiments/whatsapp_to_json.py
+
 - **Líneas:** 73
 - **Clases:** 0
 - **Funciones:** 1
@@ -776,6 +821,7 @@ TIO_AI/
 ---
 
 ### modules/utils.py
+
 - **Líneas:** 73
 - **Clases:** 0
 - **Funciones:** 5
@@ -789,6 +835,7 @@ TIO_AI/
 ---
 
 ### resources/tests/test_cortex.py
+
 - **Líneas:** 72
 - **Clases:** 0
 - **Funciones:** 0
@@ -797,4 +844,5 @@ TIO_AI/
 ---
 
 ### modules/skills/files.py
+
 - **Líneas:** 72
