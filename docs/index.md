@@ -1768,52 +1768,52 @@ Como imagen de debian usaremos el archivo ISO: `debian-13.3.0-amd64-DVD-1.iso`, 
 ### 3.1. Instalación del Sistema
 
 Debemos elegir la opción de **Instalar**. (La segunda)
-![alt text](PXL_20260207_164926514.jpg)
+![alt text](image/PXL_20260207_164926514.jpg)
 
 Las primeras opciones están relacionadas con el *Idioma*, *Región* y *Distribución del teclado*. Esto es a gusto del usuario final, pero en este caso usaremos **Español**
-![alt text](PXL_20260207_164941481.jpg)
-![alt text](PXL_20260207_164944937.jpg)
-![alt text](PXL_20260207_164948940.jpg)
+![alt text](image/PXL_20260207_164941481.jpg)
+![alt text](image/PXL_20260207_164944937.jpg)
+![alt text](image/PXL_20260207_164948940.jpg)
 
 Para el nombre de la maquina, dejare el por defecto, ya que esto no afecta al sistema final
-![alt text](PXL_20260207_171803920.jpg)
+![alt text](image/PXL_20260207_171803920.jpg)
 
 Ahora nos pregunta la contraseña del usuario administrador (root), este no es necesario habilitarlo, ya que el servicio funciona en la capa de usuario.
-![alt text](PXL_20260207_171811803.jpg)
+![alt text](image/PXL_20260207_171811803.jpg)
 
 Ahora en el nombre del usuario yo pondré *user*, pero podemos poner otra cosa, no afecta al sistema final
-![alt text](PXL_20260207_171821971.jpg)
+![alt text](image/PXL_20260207_171821971.jpg)
 
 Como contraseña se recomienda algo seguro (mínimo 8 caracteres y mezclar letras y numero), no el *1234* que yo he puesto
-![alt text](PXL_20260207_171829622.MP.jpg)
-![alt text](PXL_20260207_171836023.jpg)
+![alt text](image/PXL_20260207_171829622.MP.jpg)
+![alt text](image/PXL_20260207_171836023.jpg)
 
 En el particionado del disco, seleccionamos *Guiado - Utilizar todo el disco* (Segunda opcion) y despues seleccionamos el disco
-![alt text](PXL_20260207_171909395.jpg)
-![alt text](PXL_20260207_171916643.jpg)
+![alt text](image/PXL_20260207_171909395.jpg)
+![alt text](image/PXL_20260207_171916643.jpg)
 
 Al estar en una maquina virtual con espacio limitado, no veo necesario hacer particiones, en un sistema real no habría problema si el usuario quiere partcionar el disco siempre que tenga suficiente espacio luego para el despliegue (~65Gb).Por ello usamos *Todos los ficheros en una partición (Recomendado para novatos)* y confirmamos los cambios
-![alt text](PXL_20260207_171921564.jpg)
-![alt text](PXL_20260207_171930862.jpg)
-![alt text](PXL_20260207_171935739.jpg)
+![alt text](image/PXL_20260207_171921564.jpg)
+![alt text](image/PXL_20260207_171930862.jpg)
+![alt text](image/PXL_20260207_171935739.jpg)
 
 Seleccionamos en la lista la región de nuestra replica
-![alt text](PXL_20260207_172045392.jpg)
+![alt text](image/PXL_20260207_172045392.jpg)
 
 Ahora en la lista de replicas, se recomienda la primera o la segunda opción, ya que son las mas rápidas y estables.
-![alt text](PXL_20260207_172053178.jpg)
+![alt text](image/PXL_20260207_172053178.jpg)
 
 La encuesta de uso de paquetes es algo opcional, por costumbre doy que si ya que el software de gratis no esta de mas ceder algunos datos de uso.
-![alt text](PXL_20260207_172245163.jpg)
+![alt text](image/PXL_20260207_172245163.jpg)
 
 Ahora viene el paso clave, que es la diferencia entre un sistema optimizado y un sistema que come recursos sin limites. Tenemos que desmarcar todas las opciones y dejar solo **SSH Server** y **Utilidades estándar del sistema**
-![alt text](PXL_20260207_172302808.jpg)
+![alt text](image/PXL_20260207_172302808.jpg)
 
 Elegiremos continuar para reiniciar el sitema.
-![alt text](PXL_20260207_172438641.MP.jpg)
+![alt text](image/PXL_20260207_172438641.MP.jpg)
 
 Ahora iniciamos sesión en el sistema, verificamos que tengamos conexión de red, apuntamos la *dirección IP* y activamos el servicio *SHH* en el arranque (`systemctl enable ssh`) y en el momento (`systemctl start ssh`)
-![alt text](PXL_20260207_173523644.jpg)
+![alt text](image/PXL_20260207_173523644.jpg)
 
 ### 3.2 Despliegue del Servicio
 
@@ -1822,28 +1822,28 @@ Ahora iniciamos sesión en el sistema, verificamos que tengamos conexión de red
 > Para el primer paso, nos desplazamos a la pagina de Github del [proyecto](https://github.com/OpenMacedonIA/WatermelonD), en ella nos desplazamos hasta que nos aparezca el campo con el comando para la instalacion automatizada
 > 
 
-![alt text](image-22.png)
+![alt text](image/image-22.png)
 
 Copiaremos el contenido de ese campo y lo pegaremos en la consola SSH que tenemos abierta, una vez pulsemos enter empezara una instalación automatizada, que nos hará una serie de preguntas durante la misma para personalizar un poco la instalación
-![alt text](image-23.png)
+![alt text](image/image-23.png)
 
 #### 3.2.1 Instalacion Automatizada
 
 > El instalador hace uso de whiptail, que es una utilidad para mostrar interfaces gráficas simples desde la propia consola, los sistemas debian la llevan instalada por defecto
 > La primera pregunta que tenemos es el directorio de instalación, se recomienda dejar el por defecto que es `~/watermelonD` pero podemos cambiarlo a uno de nuestra preferencia.
 
-![alt text](image-24.png)
-![alt text](image-25.png)
+![alt text](image/image-24.png)
+![alt text](image/image-25.png)
 
 Actualmente la rama main y rc son la misma ya que se fusionaron debido a que el proyecto ya es "semi-estable", por lo que no hay diferencia entre elegir una o otra. Para la instalación cogeremos **main**
-![alt text](image-26.png)
-![alt text](image-27.png)
+![alt text](image/image-26.png)
+![alt text](image/image-27.png)
 
 Si el instalador detectara que ya esta clonado  en la carpeta de destino, nos avisaría de ello, dándonos la opción de seguir y actualizar si *hay cambios*.
-![alt text](image-28.png)
+![alt text](image/image-28.png)
 
 Se cerrara whiptail, y el instalador empezara a descargar de manera automática el *repositorio principal*y *los submodulos*
-![alt text](image-29.png)
+![alt text](image/image-29.png)
 
 Para continuar se nos abrirá un menu con diferentes opciones que nos permite elegir el tipo de instalación, estas son:
 * **Instalacion ESTANDAR**: Instala todo el sistema y todas las funciones, aunque algunas nos las pregunta
@@ -1853,138 +1853,134 @@ Para continuar se nos abrirá un menu con diferentes opciones que nos permite el
 * **Herramientas / Mantenimiento**: Incluye herramientas que he ido usando durante el desarollo para arreglar pequeños error (La mayoria obsoletas)
 * **Salir**: Sale de la instalacion
   **Aqui usaremos la primera opcion**
-  ![alt text](image-30.png)![alt text](image-31.png)
+  ![alt text](image/image-30.png)![alt text](image/image-31.png)
 
 El instalador detectara el sistema en el que estamos, siendo las opciones *Debian/Ubuntu* o *Otros*, y en base a ello procede, nos pide la clave del usuario que la requiere para instalar los paquetes del sistema necesarios
-![alt text](image-32.png)
+![alt text](image/image-32.png)
 
 Nos pregunta si queremos instalar el *modo kiosko*, esto *solo* se debe instalar si tenemos una *pantalla* en el equipo, ya sea por que es un portátil (consume recursos innecesarios si no hay pantalla). Después si queremos *optimizar el sistema*, aquí cambiamos el nombre de hostname, agregamos unas entradas en el `/etc/hosts` y quita basura preinstalada (si la hay)
 
 Vamos a decir *Si* a todo para hacer la instalación completa
-![alt text](image-33.png)
+![alt text](image/image-33.png)
 Ahora comenzara una de las partes que *mas tiempo* toma, descargar los paquetes del sistema, dependiendo de la velocidad de internet puede tardar entre *5 - 15 minutos*
-![alt text](image-34.png)
+![alt text](image/image-34.png)
 
 En el proceso de descarga de paquetes, se instala *Tripwire*, esta es una utilidad para evitar modificaciones no autorizadas de fichero del sistema, *el configurarlo o no , no afecta al sistema final*, esto añade una capa de seguridad si el sistema esta expuesto a internet impidiendo que se modifiquen los ficheros.
 
 Para este despliegue lo vamos a usar, pulsamos *Si* para crear las claves de sitio y local y para crear la base de datos
-![alt text](image-35.png)
-![alt text](image-36.png)
-![alt text](image-37.png)
+![alt text](image/image-35.png)
+![alt text](image/image-36.png)
+![alt text](image/image-37.png)
 
 Después de un rato de descarga de paquetes, nos pedirá las claves de sitio y local, siguiendo el despliegue voy a  *1234* (esto no se debe hacer no es seguro).
-![alt text](image-38.png)
-![alt text](image-39.png)
+![alt text](image/image-38.png)
+![alt text](image/image-39.png)
 
 Para continuar, descargara la versión de *python* requerida, ya que no usa la que viene con el sistema por defecto usa una algo mas vieja, junto a ella se descarga *uv* que es un gestor de paquetes mas rápido de el integrado PIP.  Después crea el entorno virtual para que no haya conflictos con paquetes del sistema y para terminar con esta parte clona *FANN C* y lo compila, esto es para optimizar esta librería al sistema de destino
-![alt text](image-40.png)
+![alt text](image/image-40.png)
 
 Después *uv*, descargara e instalara las *librerías de python* requeridas para funcionar, igual que la instalación de paquetes del sistema, la velocidad de esta requiere de nuestro Internet tardando entre 5 - 10 minutos
-![alt text](image-41.png)
+![alt text](image/image-41.png)
 
 #### 3.2.2 Personalizacion
 Para continuar, el instalador nos preguntara si queremos personalizar el sistema, aquí se genera el fichero `config.json` en caso de pulsar *No*, se genera un fichero genérico.
 Para el despliegue usaremos *Si*
-![alt text](image-42.png)
+![alt text](image/image-42.png)
 
 Se dispone de dos modos, que son los siguientes:
 * **Simple**: Configura cosas esenciales (el nombre de usuario y las palabras de activación)
 * **Avanzado**: Configura lo anterior y le sumamos el puerto de la webUI, alias de servidores y equipos SSH.
   Seleccionamos el *Avanzado*
-  ![alt text](image-43.png)
-  ![alt text](image-44.png)
-
- Aquí configuramos como queremos que el asistente se dirija a nosotros, por defecto es *Usuario*
-![alt text](image-45.png)
-
+  ![alt text](image/image-43.png)
+![alt text](image/image-44.png)
 Ahora nos permite añadir mas palabras de activacion, aparte de las incluidas.
 
 > Recomendación si queremos añadir una palabra por ejemplo *wamd* seria ideal añadir como se escribiría foneticamente *guamde*
 
-![alt text](image-47.png)
+![alt text](image/image-47.png)
 
 
  Aqui podemos agregar servidores ssh para que el sistema pueda conectarse a ellos.
 > Esta función usa un modelo que no esta disponible todavía dado que es mas complejo de entrenar que el resto
 
-![alt text](image-48.png)
+![alt text](image/image-48.png)
 
 Esta opción nos pide las siguientes opciones a la hora de agregar un servidor:
 * **Alias del servidor**: Este es el nombre que usamos para referirnos a el a la hora de hacer peticiones al asistente
-  ![alt text](image-49.png)
+  ![alt text](image/image-49.png)
 * **Host o direccion IP**: La direccion del servidor
-  ![alt text](image-50.png)
+  ![alt text](image/image-50.png)
 * **Usuario SSH:** El usuario con el que se inicia sesion por ssh en ese servidor
-  ![alt text](image-51.png)
+  ![alt text](image/image-51.png)
 * **Puerto:** Normalmente es el 22 pero hay gente que lo cambia
-  ![alt text](image-52.png)
+  ![alt text](image/image-52.png)
 * **Autenticacion:** Aqui nos da las dos opciones si es por medio de una clave o una contraseña, de ambas formas el sistema las almacena de forma segura las contraseñas van encriptadas
-  ![alt text](image-53.png)
+  ![alt text](image/image-53.png)
   * **Si cojemos autenticacion por clave:** Debemos copiar la clave privada previamente en el servidor o generarla desde el mismo
-    ![alt text](image-54.png)
+    ![alt text](image/image-54.png)
   * **Si cojemos autenticacion por contraseña**: El sistema nos pedirá la clave
     ![[Captura desde 2026-02-07 19-03-40.png]]
-    ![alt text](image-55.png)
+    ![alt text](image/image-55.png)
     Y nos da la opción de agregar mas
-    ![alt text](image-56.png)
-    ![alt text](image-57.png)
+    ![alt text](image/image-56.png)
+    ![alt text](image/image-57.png)
 
 Ahora configuramos los alias de red, por defecto esta configurado `google=8.8.8.8` y `router=192.168.1.1`. 
 Con esta opción podemos usar utilidades de red sin recordar la IP, lo que permite decirle al asistente `haz ping a google` y que sepa donde esta *google*.
-![alt text](image-58.png)
-![alt text](image-59.png)
-![alt text](image-60.png)
+![alt text](image/image-58.png)
+![alt text](image/image-59.png)
+![alt text](image/image-60.png)
 
 Primero nos pide el nombre del alias
-![alt text](image-61.png)
+![alt text](image/image-61.png)
 Y despues su direccion IP
-![alt text](image-62.png)
-![alt text](image-63.png)
+![alt text](image/image-62.png)
+![alt text](image/image-63.png)
 Y nos pregunta si queremos agregar mas
-![alt text](image-64.png)
+![alt text](image/image-64.png)
 
 Aunque se permite cambiar el puerto de la interfaz web, no se recomienda, por dos razones:
 1. Habría que hacer ajustes manuales en diferentes archivos como el `.xinitrc` para cambiar la dirección a la que apunta chromiun en modo kiosko
 2. Implemente esto por que pensé que funcionaria. Cuando lo probé dejo de funcionar todo (se me olvida quitarlo).
-   ![alt text](image-65.png)
+   ![alt text](image/image-65.png)
 
 Las preferencias de voz no ha dado tiempo a que se puedan editar desde aquí, pero el sistema informa de donde pueden cambiarse
-![alt text](image-66.png)
-![alt text](image-67.png)
-![alt text](image-68.png)
+![alt text](image/image-66.png)
+![alt text](image/image-67.png)
+![alt text](image/image-68.png)
 
 #### 3.2.3 Configuración de la base de datos
 Para continuar con el despliegue, el sistema creara la base de datos
-![alt text](image-70.png)
+![alt text](image/image-70.png)
 
 #### Descarga de los modelos LLM/SLM
 Despues comenzara con la descarga de los modelos, estos modelos son:
 
 - *Sherpa-ONNX-Whisper-Small*
-![alt text](image-71.png)
+![alt text](image/image-71.png)
 - *Gemma2B*
-![alt text](image-72.png)
+![alt text](image/image-72.png)
 - *Grape-models*
-![alt text](image-73.png)
+![alt text](image/image-73.png)
 
 #### 3.2.4 Systemd, HTTPS y sudoers
 Tras la descarga creara los servicios *systemd* para el arranque del servicio en el sistema y configurara algunos permisos necesarios para que algunas utilidades funcionen
 
 > Esto requiere contraseña del usuario administrador
 
-![alt text](image-74.png)
+![alt text](image/image-74.png)
 
 Después genera el certificado autofirmado HTTPS y nos explica como se configura en los clientes
-![alt text](image-75.png)
+![alt text](image/image-75.png)
 
 Para finalizar configurara un fichero `sudoers` para dar al sistema ciertos permisos
-![alt text](image-76.png)
+![alt text](image/image-76.png)
 
 Para finalizar y que el sistema arranque, reiniciamos el sistema
-![alt text](image-77.png)
+![alt text](image/image-77.png)
 
 Con el comando `systemctl status --user neo.service`, podemos ver si todo ha salido bien y el servicio arranca
-![alt text](image-78.png)
+![alt text](image/image-78.png)
 
 ## 4. INTERFAZ WEB
 
@@ -2008,14 +2004,14 @@ Actualmente esta lo siguiente;  un orbe que hace como un efecto de respiración 
 - La generación del comando por los grape-models 
 - La salida del comando  
 También muestra el consumo de recursos, pero hay que remarcar este consumo de recursos no es del servidor es del sistema en el que se ejecuta la ventana web. Podemos acceder a esta ventana en `http://localhost:5000/face`
-![alt text](image-79.png)
+![alt text](image/image-79.png)
 
 ### 4.2 WebUI
 La WebUI esta dividida en varios menús cada una con una función. Esta un poco desactualizada y hay cosas que no van, pero da una idea de lo que se busca y el uso que tiene.
 La WebUI tiene tanto un modo claro como uno oscuro (aunque el claro te quema los ojos).
 
 Cuando el sistema se desconecta la interfaz web muestra un mensaje de *Conectando con WatermelonD*.
-![alt text](image-81.png)
+![alt text](image/image-81.png)
 
 #### 4.2.1 Dashboard
 Este panel muestra de un vistazo rápido:
@@ -2023,7 +2019,7 @@ Este panel muestra de un vistazo rápido:
 - También permite enviar comandos por medio de texto directamente al bus de escucha (para pruebas).
 - Un botón para silenciar el micrófono 
 - Una zona que indica si el sistema esta o no activo
-![alt text](image-82.png)
+![alt text](image/image-82.png)
 
 #### 4.2.2 Monitor del sistema
 Aquí nos encontramos con un monitor de recursos, y procesos. 
@@ -2033,7 +2029,7 @@ Podemos ver los procesos activos (aquí si es en el servidor) con:
 - **El consumo de CPU** (aquí vemos el consumo del modo kiosko que es bastante alto) 
 - **El uso de ram**. 
 En cuanto al monitor de recursos es en tiempo real haciendo uso de *graphana* para almacenar un pequeño margen del historial de consumo desde el inicio del sistema.
-![alt text](image-83.png)
+![alt text](image/image-83.png)
 
 #### 4.2.3 Herramientas de red
 Ahora nos encontramos la pestaña de herramientas de red. 
@@ -2042,14 +2038,14 @@ Nos permite :
 - Hacer un **test de velocidad** usando *speedtest-cli* 
 - Un **ping** al *8.8.8.8* 
 - **Escanear Wifi** para  conectar el sistema a Internet. (Conectar por wifi no va en la maquina virtual)
-![alt text](image-84.png)
+![alt text](image/image-84.png)
 
 #### 4.2.4 Terminal del sistema
 Aqui tenemos una terminal (no interactiva) para **ejecutar comandos simples**, esta se encuentra *enjaulada* en el directorio del usuario y no puede acceder a otros.
 
 > Cuando decimos que no es interactiva nos referimos a que no permite comandos que requieran una entrada por parte del usuario. Ej: sudo apt update
 
-![alt text](image-85.png)
+![alt text](image/image-85.png)
 
 #### 4.2.5 Logs
 Desde aquí podemos ver los logs del servicio.
@@ -2058,7 +2054,7 @@ Con los cambios que se han hecho en el sistema de logs a lo largo del proyecto, 
 
 > Se que en este log no va el sistema de audio, lleva asi como un mesy espero que este arreglado para la defensa de este proyecto
 
-![alt text](image-86.png)
+![alt text](image/image-86.png)
 
 #### 4.2.6 Acciones
 Desde este menu se pueden hacer acciones rápidas en el sistema, entre ellas tenemos:
@@ -2070,43 +2066,43 @@ Desde este menu se pueden hacer acciones rápidas en el sistema, entre ellas ten
 * **Crear Backup**: Crea una copia de seguridad de la configuracion `config/config.json`
 * **Reiniciar red**: Reinicia el servicio de red usando systemctl
   En la consola de debajo se visualiza la salida de estos comandos
-  ![alt text](image-87.png)
+  ![alt text](image/image-87.png)
 
 #### 4.2.7 Gestor de tareas (Cron)
 Esto es una interfaz para el cron, por si el usuario quiere ejecutar tareas, lo que se escribe aquí se almacena en el cron a nivel de usuario
-![alt text](image-88.png)
-![alt text](image-89.png)
+![alt text](image/image-88.png)
+![alt text](image/image-89.png)
 
 #### 4.2.8 Explorador de archivos
 Esta ventana al principio funcionaba un día toque algo y no volvió a funcionar, sigue aquí por que se me olvida quitarla, pero aquí tendríamos un explorador de archivos que permite visualizarlos.
-![alt text](image-90.png)
+![alt text](image/image-90.png)
 
 #### 4.2.9 Gestor de extensiones
 Desde aquí podemos ver las skills instaladas en el sistema, por desgracia no todas.
 Requiere referenciar la skill en los archivos de la web (no he conseguido que al meter una skill personalizada salga aquí su nombre automáticamente).
-![alt text](image-91.png)
+![alt text](image/image-91.png)
 Algunas de las skills que hay aquí permiten configuración,  esas son las siguientes: 
 
 * **Archivos**: Esta skill pre-escanea el sistema de archivos en cada inicio del sistema o 24 horas, desde aquí podemos configurar cada cuanto tiempo, archivos a escanear y las rutas. Tambien podemos ejecutar un escaneo
-  ![alt text](image-92.png)
+  ![alt text](image/image-92.png)
 * **SSH**: Aquí podemos agregar servidores ssh al sistema de la misma forma que desde el instalador
-  ![alt text](image-93.png)
+  ![alt text](image/image-93.png)
 * **Red**: Desde aquí agregamos servidores y sus alias igual que en el instalador
-  ![alt text](image-94.png)
+  ![alt text](image/image-94.png)
 * **Otras Skills**: Las skills sin configuración por interfaz gráfica tienen un editor json para editarlas por medio de código.
-  ![alt text](image-95.png)
+  ![alt text](image/image-95.png)
 
 #### 4.2.10 NLU
 Aquí nos aparecen las frases que el sistema no ha entendido.
 Se les puede asignar o una función o una skill. 
 Al pulsar en *Reiniciar WatermelonD*, lo hacemos es reentrenar la pequeña red neuronal agregando estos nuevos datos.
-![alt text](image-96.png)
+![alt text](image/image-96.png)
 
 #### 4.2.11 MQTT
 Esta es la ultima función agregada. Permite ver el estado de los agentes que usan el protocolo MQTT, desde aquí podemos: 
 - Ver los que están *conectados* y su *estado*. 
 - *Generar un script* personalizado para el despliegue en dispositivos **RaspberryPi**.
-![alt text](image-97.png)
+![alt text](image/image-97.png)
 
 > La ultima pestaña Ajustes un día dejo de funcionar y no he conseguido como repararla, se que esta relacionado con la libreria socket.io pero si la quito deja de funcionar toda la webUI
 
