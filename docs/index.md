@@ -1,143 +1,337 @@
-
-
-# Índice
-
-1. [Objetivo principal de tu proyecto](#1-objetivo-principal-de-tu-proyecto)
-  - [Herramientas a usar](#11-herramientas-a-usar)
-2. [Descripción del proyecto](#2-descripción-del-proyecto)
-3. [Descripción del Entorno de Desarrollo y Despliegue](#3-descripción-del-entorno-de-desarrollo-y-despliegue)
-  - [Entorno de desarrollo](#31-entorno-de-desarrollo)
-  - [Entorno de Despliegue](#32-entorno-de-despliegue)
-4. [Estudio de Necesidades y Requisitos Funcionales](#4--estudio-de-necesidades-y-requisitos-funcionales)
-  - [Requisitos Funcionales](#41-requisitos-funcionales)
-  - [Requisitos No Funcionales](#42-requisitos-no-funcionales)
-5. [Recursos y Planificación](#5-recursos-y-planificación)
-  - [Planificación aproximada](#51-planificación-aproximada)
-  - [Identificación y gestión de riesgos](#52-identificación-y-gestión-de-riesgos)
-  - [Control de Versiones y Estrategia Modular](#53-control-de-versiones-y-estrategia-modular)
-6. [Propuesta técnica](#6-propuesta-técnica)
-  - [Capa de Percepción (Entrada)](#61-capa-de-percepción-entrada)
-  - [Capa Cognitiva (Procesamiento)](#62-capa-cognitiva-procesamiento)
-  - [Capa de acción y gestión (salidas)](#63-capa-de-acción-y-gestión-salidas)
-  - [Stack tecnologico](#64-stack-tecnologico)
-7. [Justificación de la propuesta](#7-justificación-de-la-propuesta)
-8. [Implantación](#8-implantación)
-  - [Requisitos de despliegue](#81-requisitos-de-despliegue)
-  - [Proceso de instalación](#82-proceso-de-instalación)
-9. [Viabilidad y Aspectos Económicos](#9viabilidad-y-aspectos-económicos)
-  - [Empresa: MacedonIA Solutions](#91-empresa-macedonia-solutions)
-  - [Presupuesto](#92-presupuesto)
-    - [Hardware](#921-hardware)
-    - [Software](#922-software)
-    - [Total](#923-total)
-
-# ANEXOS
-
-- [ANEXO I: Manual de Usuario y Administración](#anexo-i-manual-de-usuario-y-administración)
-  - [INSTALACIÓN Y DESPLIEGUE](#1-instalación-y-despliegue)
-    - [Requisitos del sistema](#11-requisitos-del-sistema)
-    - [Preparación del entorno](#12-preparación-del-entorno)
-    - [Proceso de Instalación Automatizada](#13-proceso-de-instalación-automatizada)
-    - [Verificación de la instalación](#14-verificación-de-la-instalación)
-    - [Configuración del Modo Kiosk](#15-configuración-del-modo-kiosk)
-  - [CONFIGURACIÓN DEL SISTEMA](#2-configuración-del-sistema)
-  - [MANUAL DE USUARIO](#3-manual-de-usuario)
-  - [MANUAL DE ADMINISTRACIÓN](#4-manual-de-administración)
-  - [CONFIGURACION AVANZADA](#5-configuracion-avanzada)
-
-- [ANEXO II: Manual Técnico de Despliegue](#anexo-ii-manual-técnico-de-despliegue)
-  - [INTRODUCCIÓN TÉCNICA](#1-introducción-técnica)
-  - [ARQUITECTURA INTERNA Y FLUJO DE DATOS](#2-arquitectura-interna-y-flujo-de-datos)
-  - [INSTALACIÓN DE BAJO NIVEL](#3-instalación-de-bajo-nivel)
-  - [RETOQUES Y OPTIMIZACIÓN DEL KERNEL](#4-retoques-y-optimización-del-kernel)
-  - [SEGURIDAD AVANZADA](#5-seguridad-avanzada)
-  - [ANEXOS TECNICOS](#8-anexos-tecnicos)
-
-- [ANEXO III: Arquitectura Interna e Inteligencia Artificial](#anexo-iii-arquitectura-interna-e-inteligencia-artificial)
-  - [INTRODUCCIÓN A LA COGNICIÓN ARTIFICIAL](#1-introducción-a-la-cognición-artificial)
-  - [ARQUITECTURA COGNITIVA](#2-arquitectura-cognitiva)
-  - [COMPRENSIÓN DEL LENGUAJE NATURAL (NLU)](#3-comprensión-del-lenguaje-natural-nlu)
-  - [EL "CEREBRO" (SISTEMAS DE MEMORIA)](#4-el-cerebro-sistemas-de-memoria)
-  - [INTELIGENCIA GENERATIVA (LLM)](#5-inteligencia-generativa-llm)
-  - [PROCESAMIENTO DE SEÑALES (LOS SENTIDOS)](#6-procesamiento-de-señales-los-sentidos)
-  - [COGNICIÓN MULTI-AGENTE](#7-cognición-multi-agente)
-  - [CASOS DE ESTUDIO DE INTERACCIÓN](#8-casos-de-estudio-de-interacción)
-  - [REFERENCIA DE API INTERNA (AI MODULES)](#9-referencia-de-api-interna-ai-modules)
-  - [REFERENCIA DE CONFIGURACIÓN (AI)](#9-referencia-de-configuración-ai)
-  - [HOJA DE RUTA DE IA](#10-hoja-de-ruta-de-ia)
-
-- [ANEXO IV: Resolución de Problemas](#anexo-iv-resolución-de-problemas)
-  - [PROBLEMAS DEL USUARIO FINAL](#1-problemas-del-usuario-final)
-  - [PROBLEMAS DE INGENIERÍA Y DESPLIEGUE](#2-problemas-de-ingeniería-y-despliegue)
-  - [PROBLEMAS DEL SISTEMA DE IA Y LOGICA](#3-problemas-del-sistema-de-ia-y-logica)
-  - [CÓDIGOS DE ERROR INTERNOS](#4-códigos-de-error-internos)
-
-- [ANEXO V: Programación y Creación de Skills](#anexo-v-programación-y-creación-de-skills)
-  - [INTRODUCCIÓN](#1-introducción)
-  - [ARQUITECTURA DEL SISTEMA DE SKILLS](#2-arquitectura-del-sistema-de-skills)
-  - [CREACIÓN DE UNA NUEVA SKILL](#3-creación-de-una-nueva-skill)
-  - [ACCESO AL NÚCLEO (NEOCORE)](#4-acceso-al-núcleo-neocore)
-  - [BUENAS PRÁCTICAS DE DESARROLLO](#5-buenas-prácticas-de-desarrollo)
-  - [SKILLS EXISTENTES](#6-skills-existentes)
-  - [DESARROLLO COMUNITARIO (Watermelon-extras)](#7-desarrollo-comunitario-watermelon-extras)
-
-- [ANEXO VI: Pruebas de Validación y Rendimiento](#anexo-vi-pruebas-de-validación-y-rendimiento)
-  - [INTRODUCCIÓN](#1-introducción)
-  - [PRUEBAS UNITARIAS Y DE COMPONENTES](#2-pruebas-unitarias-y-de-componentes)
-  - [PRUEBAS DE INTEGRACIÓN (FLUJO COMPLETO)](#3-pruebas-de-integración-flujo-completo)
-  - [PRUEBAS DE RENDIMIENTO Y ESTRÉS](#4-pruebas-de-rendimiento-y-estrés)
-  - [CONCLUSIONES DE LAS PRUEBAS](#5-conclusiones-de-las-pruebas)
-
-- [ANEXO VII: Retos de Desarrollo y Soluciones Adoptadas](#anexo-vii-retos-de-desarrollo-y-soluciones-adoptadas)
-  - [INTRODUCCIÓN](#1-introducción)
-  - [RETOS DE AUDIO Y LATENCIA](#2-retos-de-audio-y-latencia)
-  - [RETOS DE INTELIGENCIA ARTIFICIAL (LLM)](#3-retos-de-inteligencia-artificial-llm)
-  - [CONCLUSIÓN](#5-conclusión)
-
-- [ANEXO VIII: Despliegue](#anexo-viii-despliegue)
-  - [INTRODUCCIÓN](#1-introducción)
-  - [PREPARACIÓN DEL HARDWARE](#2-preparación-del-hardware)
-  - [DESPLIEGUE DE DEBIAN](#3-despliegue-de-debian)
-    - [Instalación del Sistema](#31-instalación-del-sistema)
-    - [Despliegue del Servicio](#32-despliegue-del-servicio)
-    - [Instalacion Automatizada](#321-instalacion-automatizada)
-    - [Personalizacion](#322-personalizacion)
-    - [Configuración de la base de datos](#323-configuración-de-la-base-de-datos)
-    - [Systemd, HTTPS y sudoers](#324-systemd-https-y-sudoers)
-  - [INTERFAZ WEB](#4-interfaz-web)
-    - [La "Cara"](#41-la-cara)
-    - [WebUI](#42-webui)
-    - [Dashboard](#421-dashboard)
-    - [Monitor del sistema](#422-monitor-del-sistema)
-    - [Herramientas de red](#423-herramientas-de-red)
-    - [Terminal del sistema](#424-terminal-del-sistema)
-    - [Logs](#425-logs)
-    - [Acciones](#426-acciones)
-    - [Gestor de tareas (Cron)](#427-gestor-de-tareas-cron)
-    - [Explorador de archivos](#428-explorador-de-archivos)
-    - [Gestor de extensiones](#429-gestor-de-extensiones)
-    - [NLU](#4210-nlu)
-    - [MQTT](#4211-mqtt)
-
-- [ANEXO IX: Documentación de Modelos Personalizados Grape](#anexo-ix-documentación-de-modelos-personalizados-grape)
-  - [GRAPE ROUTER (Router Clasificador)](#1-grape-router-router-clasificador)
-  - [MODELOS GRAPE (Modelos T5 de Ejecución)](#2-modelos-grape-modelos-t5-de-ejecución)
-
-- [ANEXO X: Referencias y Bibliografía](#anexo-x-referencias-y-bibliografía)
-  - [LIBRERÍAS Y SOFTWARE OPEN SOURCE](#1-librerías-y-software-open-source)
-  - [DOCUMENTACION USADA](#2-documentacion-usada)
-  - [RECURSOS ADICIONALES](#3-recursos-adicionales)
-
-- [GLOSARIO DE TÉRMINOS TÉCNICOS](#glosario-de-términos-técnicos)
+![img](images/portada.png)
 
 ---
 
-**Anteproyecto:**
+# Tabla de Contenidos
+
+- [Tabla de Contenidos](#tabla-de-contenidos)
+- [1. Objetivo principal de tu proyecto](#1-objetivo-principal-de-tu-proyecto)
+  - [1.1. Herramientas a usar](#11-herramientas-a-usar)
+- [2. Descripción del proyecto](#2-descripción-del-proyecto)
+  - [2.1 Antecedentes y Evolución del Proyecto](#21-antecedentes-y-evolución-del-proyecto)
+- [3. Descripción del Entorno de Desarrollo y Despliegue](#3-descripción-del-entorno-de-desarrollo-y-despliegue)
+  - [3.1 Entorno de desarrollo](#31-entorno-de-desarrollo)
+    - [3.1.1 Principales utilidades usadas:](#311-principales-utilidades-usadas)
+  - [3.2 Entorno de Despliegue](#32-entorno-de-despliegue)
+- [4.  Estudio de Necesidades y Requisitos Funcionales](#4--estudio-de-necesidades-y-requisitos-funcionales)
+  - [4.1 Requisitos Funcionales](#41-requisitos-funcionales)
+  - [4.2 Requisitos No Funcionales](#42-requisitos-no-funcionales)
+- [5. Recursos y Planificación](#5-recursos-y-planificación)
+  - [5.1. Identificación y gestión de riesgos](#51-identificación-y-gestión-de-riesgos)
+  - [5.2 Control de Versiones y Estrategia Modular](#52-control-de-versiones-y-estrategia-modular)
+- [6. Propuesta técnica](#6-propuesta-técnica)
+  - [6.1 Capa de Percepción (Entrada):](#61-capa-de-percepción-entrada)
+  - [6.2 Capa Cognitiva (Procesamiento):](#62-capa-cognitiva-procesamiento)
+  - [6.3 Capa de acción y gestión (salidas):](#63-capa-de-acción-y-gestión-salidas)
+  - [6.4 Stack tecnologico](#64-stack-tecnologico)
+- [7. Justificación de la propuesta](#7-justificación-de-la-propuesta)
+- [8. Viabilidad y Aspectos Económicos](#8-viabilidad-y-aspectos-económicos)
+  - [8.1 Empresa: MacedonIA Solutions](#81-empresa-macedonia-solutions)
+  - [8.2 Presupuesto](#82-presupuesto)
+    - [8.2.1 Hardware](#821-hardware)
+    - [8.2.2 Software](#822-software)
+    - [8.2.3 Total](#823-total)
+- [ANEXO I: Manual de Usuario y Administración](#anexo-i-manual-de-usuario-y-administración)
+  - [1. INSTALACIÓN Y DESPLIEGUE](#1-instalación-y-despliegue)
+  - [1.1 Requisitos del sistema](#11-requisitos-del-sistema)
+    - [1.1.1 Hardware](#111-hardware)
+    - [1.1.2 Software](#112-software)
+  - [1.2 Preparación del entorno](#12-preparación-del-entorno)
+  - [1.3 Proceso de Instalación Automatizada](#13-proceso-de-instalación-automatizada)
+  - [1.4 Verificación de la instalación](#14-verificación-de-la-instalación)
+  - [1.5 Configuración del Modo Kiosk](#15-configuración-del-modo-kiosk)
+  - [2. CONFIGURACIÓN DEL SISTEMA](#2-configuración-del-sistema)
+    - [2.1 Archivo de configuración Principal (`config.json`)](#21-archivo-de-configuración-principal-configjson)
+    - [2.2 Personalización de la Palabra de Activación](#22-personalización-de-la-palabra-de-activación)
+    - [2.3 Configuración de Modelos de IA](#23-configuración-de-modelos-de-ia)
+    - [10.4 Configuración de Red y MQTT](#104-configuración-de-red-y-mqtt)
+    - [2.5 Gestión de Usuarios y Permisos](#25-gestión-de-usuarios-y-permisos)
+  - [3. MANUAL DE USUARIO](#3-manual-de-usuario)
+    - [3.1 Interacción por Voz](#31-interacción-por-voz)
+      - [3.1.1 Comandos de Sistema](#311-comandos-de-sistema)
+      - [3.1.2 Comandos de Red y SSH](#312-comandos-de-red-y-ssh)
+      - [3.1.3 Comandos de Organización](#313-comandos-de-organización)
+      - [3.1.4 Comandos de contenedores (Docker)](#314-comandos-de-contenedores-docker)
+      - [3.1.5 Otros Comandos (Grape-Models)](#315-otros-comandos-grape-models)
+      - [3.1.6 Filtrado Inteligente de Salida](#316-filtrado-inteligente-de-salida)
+    - [3.2 Interacción Conversacional (Gemma 2B)](#32-interacción-conversacional-gemma-2b)
+    - [3.3 Interfaz Visual (TangerineUI)](#33-interfaz-visual-tangerineui)
+      - [3.3.1 Caracteristicas de la WebUI](#331-caracteristicas-de-la-webui)
+    - [3.4 Uso del explorador de archivos](#34-uso-del-explorador-de-archivos)
+  - [4. MANUAL DE ADMINISTRACIÓN](#4-manual-de-administración)
+    - [4.1 Gestión del Servicio (systemd)](#41-gestión-del-servicio-systemd)
+    - [4.2 Monitorización y Logs](#42-monitorización-y-logs)
+    - [4.3 Administración remota (SSH Manager)](#43-administración-remota-ssh-manager)
+    - [4.4 Seguridad y “Guard”](#44-seguridad-y-guard)
+    - [4.5 Mantenimiento y Actualizaciones](#45-mantenimiento-y-actualizaciones)
+  - [5. CONFIGURACION AVANZADA](#5-configuracion-avanzada)
+    - [5.1 Ajuste Fino de Vosk](#51-ajuste-fino-de-vosk)
+    - [5.2 Personalización de la UI Web](#52-personalización-de-la-ui-web)
+    - [5.3 Parámetros Ocultos](#53-parámetros-ocultos)
+- [ANEXO II: Manual Técnico de Despliegue](#anexo-ii-manual-técnico-de-despliegue)
+  - [1. INTRODUCCIÓN TÉCNICA](#1-introducción-técnica)
+    - [1.1 Propósito](#11-propósito)
+    - [1.2 Stack Tecnológico Detallado](#12-stack-tecnológico-detallado)
+    - [1.3 Filosofía de diseño](#13-filosofía-de-diseño)
+  - [2. ARQUITECTURA INTERNA Y FLUJO DE DATOS](#2-arquitectura-interna-y-flujo-de-datos)
+    - [2.1 Diagrama de Componentes (Nivel de Kernel)](#21-diagrama-de-componentes-nivel-de-kernel)
+    - [2.2 Esquema de Mensajeria MQTT (Network Bros)](#22-esquema-de-mensajeria-mqtt-network-bros)
+    - [2.3 Proceso de Audio (ALSA -\> VAD -\> STT)](#23-proceso-de-audio-alsa---vad---stt)
+    - [2.4 Gestión de Memoria y Ciclo de Vida](#24-gestión-de-memoria-y-ciclo-de-vida)
+  - [3. INSTALACIÓN DE BAJO NIVEL](#3-instalación-de-bajo-nivel)
+    - [3.1 Compilación de Dependencias Críticas](#31-compilación-de-dependencias-críticas)
+    - [3.2 Configuración del Entorno Python](#32-configuración-del-entorno-python)
+    - [3.3 Despliegue de modelos (GGUF \& ONNX)](#33-despliegue-de-modelos-gguf--onnx)
+  - [4. RETOQUES Y OPTIMIZACIÓN DEL KERNEL](#4-retoques-y-optimización-del-kernel)
+    - [4.1 Parametros `systcl.d` para Baja Latencia](#41-parametros-systcld-para-baja-latencia)
+    - [4.2 Configuración de Prioridad de Procesos](#42-configuración-de-prioridad-de-procesos)
+    - [4.3 Gestión de Memoria](#43-gestión-de-memoria)
+    - [4.4 Gobernanza de CPU](#44-gobernanza-de-cpu)
+  - [5. SEGURIDAD AVANZADA](#5-seguridad-avanzada)
+    - [5.1. Políticas de AppArmor/SELinux](#51-políticas-de-apparmorselinux)
+    - [5.2. Protección contra Fuerza Bruta](#52-protección-contra-fuerza-bruta)
+    - [5.3. Gestión de Secretos y Certificados SSL](#53-gestión-de-secretos-y-certificados-ssl)
+  - [8. ANEXOS TECNICOS](#8-anexos-tecnicos)
+    - [8.1 Mapa de Memoria](#81-mapa-de-memoria)
+- [ANEXO III: ARQUITECTURA INTERNA E INTELIGENCIA ARTIFICIAL](#anexo-iii-arquitectura-interna-e-inteligencia-artificial)
+  - [1. INTRODUCCIÓN A LA COGNICIÓN ARTIFICIAL](#1-introducción-a-la-cognición-artificial)
+    - [1.1. Filosofía de Diseño: Híbrido Determinista-Generativo](#11-filosofía-de-diseño-híbrido-determinista-generativo)
+    - [1.2. El Bucle Cognitivo (Percepción-Acción)](#12-el-bucle-cognitivo-percepción-acción)
+    - [1.3. Principios de Diseño Ético y de Seguridad](#13-principios-de-diseño-ético-y-de-seguridad)
+  - [2. ARQUITECTURA COGNITIVA](#2-arquitectura-cognitiva)
+    - [2.1. Diagrama de Bloques Funcionales](#21-diagrama-de-bloques-funcionales)
+    - [2.2. Ruta del  Procesamiento de Señales](#22-ruta-del--procesamiento-de-señales)
+    - [2.3. Gestión de Prioridades y Atención](#23-gestión-de-prioridades-y-atención)
+  - [3. COMPRENSIÓN DEL LENGUAJE NATURAL (NLU)](#3-comprensión-del-lenguaje-natural-nlu)
+    - [3.1. Enfoque Híbrido: Fuzzy Logic vs Neural Networks](#31-enfoque-híbrido-fuzzy-logic-vs-neural-networks)
+    - [3.2. Algoritmo de Clasificación de Intenciones (RapidFuzz)](#32-algoritmo-de-clasificación-de-intenciones-rapidfuzz)
+    - [3.3. Redes Neuronales Superficiales (FANN/Padatious)](#33-redes-neuronales-superficiales-fannpadatious)
+    - [3.4. Router Semántico: DecisionRouter (lime-router)](#34-router-semántico-decisionrouter-lime-router)
+      - [3.4.1. Categorías de Clasificación](#341-categorías-de-clasificación)
+      - [3.4.2. Posición en el flujo de las Decisiones](#342-posición-en-el-flujo-de-las-decisiones)
+    - [3.5. Motor de Traducción de Comandos: Grape-models](#35-motor-de-traducción-de-comandos-grape-models)
+      - [3.5.1. Arquitectura del Modelo](#351-arquitectura-del-modelo)
+      - [3.5.2. Flujo de Inferencia](#352-flujo-de-inferencia)
+      - [3.5.3. Sistema de Semáforo de Seguridad](#353-sistema-de-semáforo-de-seguridad)
+  - [4. EL "CEREBRO" (SISTEMAS DE MEMORIA)](#4-el-cerebro-sistemas-de-memoria)
+    - [4.1. Memoria a Corto Plazo (Context Window)](#41-memoria-a-corto-plazo-context-window)
+    - [4.2. Memoria a Largo Plazo (Persistencia SQLite)](#42-memoria-a-largo-plazo-persistencia-sqlite)
+    - [4.3. Esquema Completo de Base de Datos](#43-esquema-completo-de-base-de-datos)
+    - [4.4. Aprendizaje Adaptativo (Alias y Preferencias)](#44-aprendizaje-adaptativo-alias-y-preferencias)
+    - [4.5. Estructura de Embeddings Vectoriales (RAG)](#45-estructura-de-embeddings-vectoriales-rag)
+    - [4.8. Consolidación de Memoria (Resúmenes Diarios)](#48-consolidación-de-memoria-resúmenes-diarios)
+    - [4.9. Motor Conversacional (`modules/chat.py`)](#49-motor-conversacional-moduleschatpy)
+  - [5. INTELIGENCIA GENERATIVA (LLM)](#5-inteligencia-generativa-llm)
+    - [5.1. Integración de Llama.cpp](#51-integración-de-llamacpp)
+    - [5.2. Estrategias de Muestreo (Sampling)](#52-estrategias-de-muestreo-sampling)
+    - [5.3. Optimización de Inferencia (KV Cache \& Batching)](#53-optimización-de-inferencia-kv-cache--batching)
+    - [5.4. Ajuste Fino (Fine-Tuning) y LoRA](#54-ajuste-fino-fine-tuning-y-lora)
+  - [6. PROCESAMIENTO DE SEÑALES (LOS SENTIDOS)](#6-procesamiento-de-señales-los-sentidos)
+    - [6.1. Secuencia de Audio: VAD y Normalización](#61-secuencia-de-audio-vad-y-normalización)
+      - [6.1.1. Sistema Multi-Motor STT](#611-sistema-multi-motor-stt)
+  - [7. COGNICIÓN MULTI-AGENTE](#7-cognición-multi-agente)
+    - [7.1. Protocolo de Consenso](#71-protocolo-de-consenso)
+    - [7.2. Resolución de Conflictos](#72-resolución-de-conflictos)
+  - [8. CASOS DE ESTUDIO DE INTERACCIÓN](#8-casos-de-estudio-de-interacción)
+    - [8.1. Caso 1: Resolución de Ambigüedad (Si hay dispoitivos IoT)](#81-caso-1-resolución-de-ambigüedad-si-hay-dispoitivos-iot)
+    - [8.2. Caso 2: Cambio de Contexto (Context Switching)](#82-caso-2-cambio-de-contexto-context-switching)
+  - [9. REFERENCIA DE API INTERNA (AI MODULES)](#9-referencia-de-api-interna-ai-modules)
+    - [9.1. Módulo `AIEngine`](#91-módulo-aiengine)
+    - [9.2. Módulo `IntentManager`](#92-módulo-intentmanager)
+    - [9.3. Módulo `VoiceManager`](#93-módulo-voicemanager)
+  - [9. REFERENCIA DE CONFIGURACIÓN (AI)](#9-referencia-de-configuración-ai)
+    - [9.1. Bloque `ai_engine`](#91-bloque-ai_engine)
+    - [9.2. Bloque `voice`](#92-bloque-voice)
+    - [9.3. Bloque `intents`](#93-bloque-intents)
+  - [10. HOJA DE RUTA DE IA](#10-hoja-de-ruta-de-ia)
+    - [10.1. Multimodalidad](#101-multimodalidad)
+    - [10.2 Optimizacion](#102-optimizacion)
+- [ANEXO IV: RESOLUCIÓN DE PROBLEMAS](#anexo-iv-resolución-de-problemas)
+  - [1. PROBLEMAS DEL USUARIO FINAL](#1-problemas-del-usuario-final)
+    - [1.1 Problemas de Audio](#11-problemas-de-audio)
+    - [1.2 Problemas de Reconocimiento de Voz](#12-problemas-de-reconocimiento-de-voz)
+    - [1.3 Problemas de Conectividad](#13-problemas-de-conectividad)
+    - [1.4 Problemas del Modelo LLM](#14-problemas-del-modelo-llm)
+  - [2. PROBLEMAS DE INGENIERÍA Y DESPLIEGUE](#2-problemas-de-ingeniería-y-despliegue)
+    - [2.1 Resolución de errores en la compilación](#21-resolución-de-errores-en-la-compilación)
+  - [3. PROBLEMAS DEL SISTEMA DE IA Y LOGICA](#3-problemas-del-sistema-de-ia-y-logica)
+    - [3.1 Diagnostico de NLU (Falsos Positivos/Negativos)](#31-diagnostico-de-nlu-falsos-positivosnegativos)
+    - [3.2 Depuracion de Alucionaciones del LLM](#32-depuracion-de-alucionaciones-del-llm)
+    - [3.3 Problemas de Latencia de Interferencia](#33-problemas-de-latencia-de-interferencia)
+  - [4. CÓDIGOS DE ERROR INTERNOS](#4-códigos-de-error-internos)
+- [ANEXO V: PROGRAMACIÓN Y CREACIÓN DE SKILLS](#anexo-v-programación-y-creación-de-skills)
+  - [1. INTRODUCCIÓN](#1-introducción)
+  - [2. ARQUITECTURA DEL SISTEMA DE SKILLS](#2-arquitectura-del-sistema-de-skills)
+    - [2.1. Ubicación](#21-ubicación)
+    - [2.2. Estructura del Directorio](#22-estructura-del-directorio)
+    - [2.3. Registro de Skills](#23-registro-de-skills)
+  - [3. CREACIÓN DE UNA NUEVA SKILL](#3-creación-de-una-nueva-skill)
+    - [3.1. Paso 1: Crear el archivo Python](#31-paso-1-crear-el-archivo-python)
+    - [3.2. Paso 2: Registramos la skill en `__init__.py`](#32-paso-2-registramos-la-skill-en-__init__py)
+    - [3.3. Paso 3: Creamos la intención en el fichero `intents.json`](#33-paso-3-creamos-la-intención-en-el-fichero-intentsjson)
+  - [4. ACCESO AL NÚCLEO (NEOCORE)](#4-acceso-al-núcleo-neocore)
+  - [5. BUENAS PRÁCTICAS DE DESARROLLO](#5-buenas-prácticas-de-desarrollo)
+  - [6. SKILLS EXISTENTES](#6-skills-existentes)
+  - [7. NO ESENCIALES (Watermelon-extras)](#7-no-esenciales-watermelon-extras)
+- [ANEXO VI: PRUEBAS DE VALIDACIÓN Y RENDIMIENTO](#anexo-vi-pruebas-de-validación-y-rendimiento)
+  - [1. INTRODUCCIÓN](#1-introducción-1)
+  - [2. PRUEBAS UNITARIAS Y DE COMPONENTES](#2-pruebas-unitarias-y-de-componentes)
+    - [2.1. Validación del Sistema RAG (Retrieval-Augmented Generation)](#21-validación-del-sistema-rag-retrieval-augmented-generation)
+    - [2.2. Pruebas del Bus de Eventos (MQTT)](#22-pruebas-del-bus-de-eventos-mqtt)
+  - [3. PRUEBAS DE INTEGRACIÓN (FLUJO COMPLETO)](#3-pruebas-de-integración-flujo-completo)
+    - [3.1. Prueba del flujo de Voz](#31-prueba-del-flujo-de-voz)
+    - [3.2. Pruebas de Interrupción (Barge-in)](#32-pruebas-de-interrupción-barge-in)
+  - [4. PRUEBAS DE RENDIMIENTO Y ESTRÉS](#4-pruebas-de-rendimiento-y-estrés)
+    - [4.1. Consumo durante el procesamiento](#41-consumo-durante-el-procesamiento)
+    - [4.3. Latencia al realizar una consulta](#43-latencia-al-realizar-una-consulta)
+  - [5. CONCLUSIONES DE LAS PRUEBAS](#5-conclusiones-de-las-pruebas)
+- [ANEXO VII: RETOS DE DESARROLLO Y SOLUCIONES ADOPTADAS](#anexo-vii-retos-de-desarrollo-y-soluciones-adoptadas)
+  - [1. INTRODUCCIÓN](#1-introducción-2)
+  - [2. RETOS DE AUDIO Y LATENCIA](#2-retos-de-audio-y-latencia)
+    - [2.1. El Problema de PulseAudio/PipeWire en Headless](#21-el-problema-de-pulseaudiopipewire-en-headless)
+    - [2.2. Cancelación de Eco](#22-cancelación-de-eco)
+  - [3. RETOS DE INTELIGENCIA ARTIFICIAL (LLM)](#3-retos-de-inteligencia-artificial-llm)
+    - [3.1. Inferencia Lenta en CPU](#31-inferencia-lenta-en-cpu)
+    - [3.2. Alucinaciones y "Verborrea"](#32-alucinaciones-y-verborrea)
+  - [5. CONCLUSIÓN](#5-conclusión)
+- [ANEXO VIII: DESPLIEGUE](#anexo-viii-despliegue)
+  - [1. INTRODUCCIÓN](#1-introducción-3)
+  - [2. PREPARACIÓN DEL HARDWARE](#2-preparación-del-hardware)
+  - [3. DESPLIEGUE DE DEBIAN](#3-despliegue-de-debian)
+    - [3.1. Instalación del Sistema](#31-instalación-del-sistema)
+    - [3.2 Despliegue del Servicio](#32-despliegue-del-servicio)
+      - [3.2.1 Instalacion Automatizada](#321-instalacion-automatizada)
+      - [3.2.2 Personalizacion](#322-personalizacion)
+      - [3.2.3 Configuración de la base de datos](#323-configuración-de-la-base-de-datos)
+      - [Descarga de los modelos LLM/SLM](#descarga-de-los-modelos-llmslm)
+      - [3.2.4 Systemd, HTTPS y sudoers](#324-systemd-https-y-sudoers)
+  - [4. INTERFAZ WEB](#4-interfaz-web)
+    - [4.1 La "Cara"](#41-la-cara)
+    - [4.2 WebUI](#42-webui)
+      - [4.2.1 Dashboard](#421-dashboard)
+      - [4.2.2 Monitor del sistema](#422-monitor-del-sistema)
+      - [4.2.3 Herramientas de red](#423-herramientas-de-red)
+      - [4.2.4 Terminal del sistema](#424-terminal-del-sistema)
+      - [4.2.5 Logs](#425-logs)
+      - [4.2.6 Acciones](#426-acciones)
+      - [4.2.7 Gestor de tareas (Cron)](#427-gestor-de-tareas-cron)
+      - [4.2.8 Explorador de archivos](#428-explorador-de-archivos)
+      - [4.2.9 Gestor de extensiones](#429-gestor-de-extensiones)
+      - [4.2.10 NLU](#4210-nlu)
+      - [4.2.11 MQTT](#4211-mqtt)
+- [ANEXO IX: DOCUMENTACIÓN DE MODELOS PERSONALIZADOS GRAPE](#anexo-ix-documentación-de-modelos-personalizados-grape)
+  - [1. GRAPE ROUTER (Router Clasificador)](#1-grape-router-router-clasificador)
+    - [1.1. Propósito](#11-propósito-1)
+    - [1.2. Especificaciones](#12-especificaciones)
+    - [1.3. Categorías de Enrutamiento](#13-categorías-de-enrutamiento)
+  - [2. MODELOS GRAPE (Modelos T5 de Ejecución)](#2-modelos-grape-modelos-t5-de-ejecución)
+    - [2.1. Propósito](#21-propósito)
+    - [2.2. Especificaciones](#22-especificaciones)
+    - [2.3. Modelos por Categoría](#23-modelos-por-categoría)
+    - [2.4. Funcionamiento](#24-funcionamiento)
+  - [3. CREACION DE LOS MODELOS](#3-creacion-de-los-modelos)
+    - [3.1 Seleccion Del Modelo Traductor](#31-seleccion-del-modelo-traductor)
+      - [3.1.1 Pelea con los LLM](#311-pelea-con-los-llm)
+      - [3.1.2 El descubrimiento](#312-el-descubrimiento)
+      - [3.1.3 El ganador](#313-el-ganador)
+    - [3.2 El Modelo Router](#32-el-modelo-router)
+    - [3.3 Obtencion de datos.](#33-obtencion-de-datos)
+      - [3.3.1 Variaciones](#331-variaciones)
+      - [3.3.2 Los datos del router](#332-los-datos-del-router)
+    - [3.4 Entrenamiento de los modelos T5](#34-entrenamiento-de-los-modelos-t5)
+      - [3.4.1 Introduccion](#341-introduccion)
+      - [3.4.1 Entrenamiento](#341-entrenamiento)
+      - [3.4.2 Subida a HuggingFace](#342-subida-a-huggingface)
+    - [3.5 Entrenamiento del Modelo router](#35-entrenamiento-del-modelo-router)
+      - [3.5.1 Introduccion](#351-introduccion)
+      - [3.5.2 El entrenamiento](#352-el-entrenamiento)
+- [ANEXO X: REFERENCIAS Y BIBLIOGRAFÍA](#anexo-x-referencias-y-bibliografía)
+  - [1. LIBRERÍAS Y SOFTWARE OPEN SOURCE](#1-librerías-y-software-open-source)
+    - [1.1. Inteligencia Artificial y Procesamiento](#11-inteligencia-artificial-y-procesamiento)
+    - [1.2. Infraestructura y Sistema](#12-infraestructura-y-sistema)
+  - [2. DOCUMENTACION USADA](#2-documentacion-usada)
+  - [3. RECURSOS ADICIONALES](#3-recursos-adicionales)
+- [GLOSARIO DE TÉRMINOS TÉCNICOS](#glosario-de-términos-técnicos)
+  - [A](#a)
+    - [ALSA (Advanced Linux Sound Architecture)](#alsa-advanced-linux-sound-architecture)
+    - [AppArmor](#apparmor)
+    - [Artifact (Artefacto)](#artifact-artefacto)
+  - [B](#b)
+    - [Backpropagation (Retropropagación)](#backpropagation-retropropagación)
+    - [BLE (Bluetooth Low Energy)](#ble-bluetooth-low-energy)
+    - [Barge-in](#barge-in)
+    - [Batching](#batching)
+  - [C](#c)
+    - [Chain-of-Thought (CoT)](#chain-of-thought-cot)
+    - [CI/CD (Continuous Integration / Continuous Deployment)](#cicd-continuous-integration--continuous-deployment)
+    - [ChromaDB](#chromadb)
+    - [Context Window (Ventana de Contexto)](#context-window-ventana-de-contexto)
+  - [E](#e)
+    - [Embedding](#embedding)
+    - [Epoch (Época)](#epoch-época)
+  - [F](#f)
+    - [Fail2Ban](#fail2ban)
+    - [FANN (Fast Artificial Neural Network)](#fann-fast-artificial-neural-network)
+    - [FFT (Fast Fourier Transform)](#fft-fast-fourier-transform)
+    - [Fine-Tuning (Ajuste Fino)](#fine-tuning-ajuste-fino)
+    - [Fernet](#fernet)
+    - [Fuzzy Logic (Lógica Difusa)](#fuzzy-logic-lógica-difusa)
+  - [G](#g)
+    - [GGUF (GPT-Generated Unified Format)](#gguf-gpt-generated-unified-format)
+  - [H](#h)
+    - [Hallucination (Alucinación)](#hallucination-alucinación)
+  - [I](#i)
+    - [IaC (Infrastructure as Code)](#iac-infrastructure-as-code)
+    - [In-Context Learning](#in-context-learning)
+    - [Intent (Intención)](#intent-intención)
+  - [K](#k)
+    - [KV Cache (Key-Value Cache)](#kv-cache-key-value-cache)
+  - [L](#l)
+    - [Latency (Latencia)](#latency-latencia)
+    - [LLM (Large Language Model)](#llm-large-language-model)
+    - [LoRA (Low-Rank Adaptation)](#lora-low-rank-adaptation)
+  - [M](#m)
+    - [MQTT (Message Queuing Telemetry Transport)](#mqtt-message-queuing-telemetry-transport)
+  - [N](#n)
+    - [NER (Named Entity Recognition)](#ner-named-entity-recognition)
+    - [NLU (Natural Language Understanding)](#nlu-natural-language-understanding)
+  - [O](#o)
+    - [OOM Killer (Out of Memory Killer)](#oom-killer-out-of-memory-killer)
+  - [P](#p)
+    - [PCM (Pulse Code Modulation)](#pcm-pulse-code-modulation)
+    - [Perplexity (Perplejidad)](#perplexity-perplejidad)
+    - [Prompt Engineering (Ingeniería de Prompts)](#prompt-engineering-ingeniería-de-prompts)
+  - [Q](#q)
+    - [Quantization (Cuantización)](#quantization-cuantización)
+  - [R](#r)
+    - [RAG (Retrieval-Augmented Generation)](#rag-retrieval-augmented-generation)
+    - [ReAct (Reasoning + Acting)](#react-reasoning--acting)
+  - [S](#s)
+    - [Sherpa-ONNX](#sherpa-onnx)
+    - [STT (Speech-to-Text) / ASR (Automatic Speech Recognition)](#stt-speech-to-text--asr-automatic-speech-recognition)
+    - [Swappiness](#swappiness)
+    - [System Prompt](#system-prompt)
+  - [T](#t)
+    - [Temperature (Temperatura)](#temperature-temperatura)
+    - [Token](#token)
+    - [Transformer](#transformer)
+    - [TTS (Text-to-Speech)](#tts-text-to-speech)
+  - [V](#v)
+    - [VAD (Voice Activity Detection)](#vad-voice-activity-detection)
+    - [Vector Database (Base de Datos Vectorial)](#vector-database-base-de-datos-vectorial)
+  - [W](#w)
+    - [Wake Word (Palabra de Activación)](#wake-word-palabra-de-activación)
+    - [WER (Word Error Rate)](#wer-word-error-rate)
+    - [AppArmor](#apparmor-1)
+    - [Artifact (Artefacto)](#artifact-artefacto-1)
+
+---
+
 # 1. Objetivo principal de tu proyecto
 
    La creación de  un asistente de voz inteligente con un  bajo consumo de recursos, diseñado para ayudar a los administradores de sistemas en sus tareas de administración y gestión de sistemas, funcionando al completo de manera local para garantizar la propiedad de los datos.
 
-   Este proyecto busca cubrir la necesidad de un asistente capaz de hacer tareas de administración así como de ejecutar comandos que el  usuario pida usando lenguaje natural, sin depender de una conexión a internet ni servicios de terceros. A diferencia de un asistente normal, con OpenMacedonIA se busca:
+   Este proyecto busca cubrir la necesidad de un asistente capaz de hacer tareas de administración así como de ejecutar comandos que el  usuario pida usando lenguaje natural, sin depender de una conexión a Internet ni servicios de terceros. A diferencia de un asistente normal, con OpenMacedonIA se busca:
 
 * **Inteligencia Híbrida:** Haciendo uso de una arquitectura de varios modelos con un router que categoriza la entrada de audio en las diferentes opciones que el sistema es capaz de manejar, permitiendo tener varios modelos cada uno especializado en un tema sin saturar el sistema y manteniendo una buena velocidad en las respuestas
 * **Seguridad proactiva:** El sistema es capaz de detectar intrusiones y anomalías en el sistema en tiempo real por medio de un sistema IDS e informar al usuario de ello
@@ -146,21 +340,21 @@
 ## 1.1. Herramientas a usar
 
 * **Lenguajes de Programación:**
-  * **Python 3.10:** Lenguaje principal del sistema y los módulos, se ha elegido una versión más antigua porque ofrece más compatibilidad con librerías antiguas de python
-  * **ShellScript:** Para los scripts de despliegue y automatización, así como para los datasheet de entrenamiento de la IA
-  * **HTML/CSS/JS:** Para la interfaz web
+	* **Python 3.10:** Lenguaje principal del sistema y los módulos, se ha elegido una versión más antigua porque ofrece más compatibilidad con librerías antiguas de python
+	* **ShellScript:** Para los scripts de despliegue y automatización, así como para la limpieza de datos para el entrenamiento de la IA
+	* **HTML/CSS/JS:** Para la interfaz web
 * **Inteligencia Artificial:**
-  * **Conversaciones:** Gemma 2B mediante llama-cpp-python, usada para responder preguntas avanzadas o de temas ajenos a generar comandos (Modulo **BrainNut**)
-  * **Comandos:** Grape-models (creados para este proyecto) mediante transformers, para traducir de lenguaje natural a Bash
-  * **Voz:** Vosk y Piper, para la entrada y salida de voz
+	* **Conversaciones:** Gemma 2B mediante llama-cpp-python, usada para responder preguntas avanzadas o de temas ajenos a generar comandos (Modulo **BrainNut**)
+	* **Comandos:** Grape-models (creados para este proyecto) mediante transformers, para traducir de lenguaje natural a Bash
+* **Voz:** Vosk, Piper y Sherpa-onnx, para la entrada y salida de voz
 * **Frameworks:**
-  * **Web:** Flask, como servidor web ejecutado desde python
-  * **Visión Artificial:** OpenCV para la detección de presencia (desactivado por defecto)
-  * **Sistema:** systemd, para la gestión de procesos del sistema
+	* **Web:** Flask, como servidor web ejecutado desde python
+	* **Visión Artificial:** OpenCV para la detección de presencia (desactivado por defecto)
+	* **Sistema:** systemd, para la gestión de los procesos del sistema
 
 # 2. Descripción del proyecto
 
-OpenMacedonIA nace de la necesidad de un asistente personal, privado y autónomo, centrado en la administración de sistemas. La idea principal de su diseño es que no tuviera ninguna dependencia de la nube, para así garantizar el principio de que son nuestros datos y no de las empresas.
+OpenMacedonIA nace de la necesidad de un asistente personal, privado y autónomo, centrado en la administración de sistemas informáticos. La idea principal de su diseño es que no tuviera ninguna dependencia de la nube, para así garantizar el principio de que son nuestros datos y no de las empresas.
 
 El desarrollo se basa en tres pilares:
 
@@ -168,10 +362,21 @@ El desarrollo se basa en tres pilares:
 * **Eficiente,** una de las ideas principales era que pudiera ejecutarse de una manera fluida en hardware modesto, esto es ya que hay administradores de sistemas con acceso a hardware potente pero hay otros más aficionados con hardware más modesto, la optimización de OpenMacedonIA permite ejecutarse en sistemas de recursos limitados
 * **Modular,** otra función clave es su capacidad de ampliación, el uso de python y librerías código abierto permiten que cualquiera expanda las funciones del sisrema con módulos adaptados a sus necesidades
 
-**Evolución del proyecto:**
+## 2.1 Antecedentes y Evolución del Proyecto
 
-En los inicios este proyecto se llamó OpenKompaiNano, diseñado para ser un asistente proactivo que acompañase a las personas mayores este disponía de una interfaz grafica de botones que fue eliminada para centrar los recursos en otras partes del sistema , después se renombró a Neo Nano, mantiene la base de código de su antecesor pero se enfoca en la administración de sistemas, no era inteligente solo comparaba la entrada de voz del usuario con una serie de respuestas predefinidas, finalmente el proyecto se terminó de llamar COLEGA y posteriormente OpenMacedonIA, este ultimo se plantea ya que los componentes tienen nombre de fruta y todos juntos hacen una Macedonia, Open es por que el proyecto es codigo abierto (y por que macedonIA ya estaba cogido en Github).
+El desarrollo del asistente ha sido un proceso de de evolución constante, pasando por distintas arquitecturas a medida que se me ocurrían nuevas funciones o ideas.
 
+*   **Fase 1: OpenKompaiNano (Base del proyecto)**
+    El proyecto fue ideado originalmente como un acompañante virtual para personas de la tercera edad que vivieran solas. Contaba con una interfaz gráfica tactil con botones muy grandes. Su funcionamiento era bastante limitado, y que se basaba en un sistema de intents predfinidos en un archivo json.
+*   **Fase 2: Neo Nano (La transiccion)**
+    Se eliminaron componentes como la interfaz tactil y las funcionalidades orientadas a la asistencia de personas mayores, reorientándose hacia tareas de administración de sistemas. La primera version usaba un solo modelo de inteligencia artificial (Llama), que aunque cumplia su funcion era muy lento y las respuestas eran desastrosas. Aqui se desarollo el sistema de skills
+*   **Fase 3: COLEGA (Nos acercamos al final)**
+    Aqui se cambio del modo Llama a Gemma, ganamos inteligencia pero el tiempo de respuesta era lento. Se empezo a usar un modelo de arquitectura T5 (Mango), esto era el inicio de lo que es hoy el proyecto, mango era rapido, pero fallaba mucho, tenia que tener mucho conocimiento en un modelo muy ligero. Aqui se introdujo el sistema de router que en un primer momento lo hacia python de manera simple, y decididia si usar el modelo Mango o ejecutar una skill.
+* **Fase 4: OpenMacedonIA (El final)**
+    Llegamos a lo que tenemos ahora, se paso de un unico modelo T5 gigante (Mango tenia 770M de parametros) a una arquitectura hibrida con 5 modelos pequeños (60M cada uno), en vez de centrar toda la inteligencia en un solo modelo, se reparte entre varios modelos especializados cad uno en un campo (Grape-models). Despues se diseño el router tal y como esta ahora pasando de usar python a un modelo SLM dedicado exclusivamente a categorizar la entrada de audio y enviarla al modelo que corresponda. El sistema de skills inicial se mantiene aunque se va a sustituir de manera gradual por los modelos Grape-models.
+* **Fase 5: GrapeClaw (El futuro)**
+    Con el proyecto OpenClaw tan activo a dia de hoy he planificado coger su base y fusionarla con lo que tengo, mantengo la entrada de voz y los modelos Grape-models, pero el resto del sistema se basara en la logica de OpenClaw.
+ 
 # 3. Descripción del Entorno de Desarrollo y Despliegue
 
 ## 3.1 Entorno de desarrollo
@@ -180,30 +385,25 @@ En un primer momento se probó a usar como sistema operativo base Fedora Linux, 
 
 Para el desarrollo se ha usado principalmente Python 3.10, una versión algo más vieja a la actual python 3.14, pero con mayor compatibilidad con las librerias de IA y estabilidad
 
-**Principales utilidades usadas:**
+### 3.1.1 Principales utilidades usadas:
 
 * **Gestión de dependencias:** *pip*, *uv* y *venv* este último para el aislamiento de paquetes
-* **Control de versiones:** *Git* y *Github*
+* **Control de versiones:** *Git*, *Github* y *HuggingFace*
 * **Librerías de Python Principales:** *torch,* para la IA, *vosk,* para la voz a texto, *flask,* para el servidor Web
+* **Inteligencia Artificial:**  *transformers,* para la IA, *colab* para el entrenamiento de modelos online, *jupyter* para la experimentación, *llama-cpp-python* y *onnxruntime* para la inferencia de modelos,  
 
 ## 3.2 Entorno de Despliegue
 
-Para desplegar el proyecto, se están usando tres dispositivos diferentes cada uno con un uso final diferente:
+Para desplegar el proyecto, se están usando dos dispositivos diferentes cada uno con un uso final diferente:
 
 * **Nodo Principal:** Lenovo Yoga 530-14IKB
-> Este dispositivo ha muerto, se esta usando una maquina virtual que replica sus caracteristicas
-	
+> Este dispositivo ha muerto, se esta usando una maquina virtual que replica sus características
+> Actualización 27/02/2026: Ha revivido, y vuelve a estar operativo con todo funcional
 * **Procesador:** Intel Core I3-7020U (2 núcleos / 4 hilos)
 * **RAM:** 8Gb DDR4
 * **Almacenamiento:** 128Gb Nvme
 * **Uso:** Ejecuta el Núcleo principal (**NeoCore**), los modelos Gemma y Mango y el servidor Web (**TangerineUI**).
 
-* **Agente Satélite:** Raspberry Pi 4B
-	* **Procesador:** Broadcom BCM2711
-	* **RAM:** 4Gb
-	* **Almacenamiento:** 32Gb MicroSD
-	* **Uso:** Se va a usar como agente, depende del procesamiento del núcleo principal.
-	
 * **Sensor IoT:** ESP32-WROOM-32E
 	* **Procesador:** Xtensa dual-core
 	* **RAM:** 520KB + 16Kb
@@ -221,7 +421,7 @@ El proyecto como se ha comentado en puntos anteriores, busca cubrir las necesida
 
 ## 4.1 Requisitos Funcionales
 
-1. **Interaccion y comunicacion**:
+1. **Interacción y comunicación**:
 	   - **Reconocimiento de Voz:** El sistema debe ser capaz de transcribir audio a texto en tiempo real sin depender de servidores externos
 	   - **Síntesis de Voz:** El sistema debe generar respuestas de audio inteligentes con una voz casi natural
 2. **Inteligencia y Razonamiento:**
@@ -248,17 +448,9 @@ Son requisitos que le pongo para lograr el objetivo pero que no agregan funciona
 
 # 5. Recursos y Planificación
 
-Los recursos de hardware a usar se han descrito en el apartado 3.2. Si hablamos de otros recursos nos encontramos que este proyecto ha sido desarrollado en conjunto con un agente de Inteligencia Artificial, podríamos definir que del total de código del proyecto alrededor del 40% ha sido desarrollado en exclusiva por un modelo de inteligencia artificial, siendo usado este en el desarrollo de la interfaz web y sus animaciones, el módulo NeoGuard, el protocolo BCP (no soy ingeniero como para desarollar un protocolo entero), el despliegue de algoritmos avanzados y las optimizaciones y resolución de problemas. El otro total de código ha sido desarrollado por una única persona apoyándose en librerías de código abierto, documentación online, foros de internet y conocimientos que se tenían de antes
+Los recursos de hardware a usar se han descrito en el apartado 3.2. Si hablamos de otros recursos nos encontramos que este proyecto ha sido desarrollado en conjunto con un agente de Inteligencia Artificial, podríamos definir que del total de código del proyecto alrededor del 40% ha sido desarrollado en exclusiva por un modelo de inteligencia artificial, siendo usado este en el desarrollo de la interfaz web y sus animaciones, el módulo NeoGuard, el despliegue de algoritmos avanzados y las optimizaciones y resolución de problemas. El otro total de código ha sido desarrollado por una única persona apoyándose en librerías de código abierto, documentación online, foros de Internet y conocimientos que se tenían de antes
 
-## 5.1 Planificación aproximada:
-
-1. **Fase 1 (Completada):** Primer prototipo funcional, reconocimiento de voz y ejecución de comando básica
-2. **Fase 2 (Completada):** Desarrollo de la arquitectura modular, integración con Gemma y primera interfaz web
-3. **Fase 3 (Completada):** Implementación de Nut, desarrollo y despliegue de NeoGuard y optimización del sistema
-4. **Fase 4 (Completada):** Soporte de nodos de red, implementación de la visión por ordenador
-5. **Fase 5 (En Pruebas):** Protocolo BCP, integracion con MQTT
-
-## 5.2. Identificación y gestión de riesgos
+## 5.1. Identificación y gestión de riesgos
 
 Dado el poco tiempo que hay para el proyecto y los desafíos técnicos que conlleva, estos son algunos de los riesgos que pueden surgir:
 
@@ -268,14 +460,14 @@ Dado el poco tiempo que hay para el proyecto y los desafíos técnicos que conll
 - Cuellos de botella en el rendimiento
 - Alucinaciones del LLM
 
-## 5.3 Control de Versiones y Estrategia Modular
+## 5.2 Control de Versiones y Estrategia Modular
 
-Para garantizar el mantenimiento y escalabilidad del proyecto OpenMacedonIA, se ha adoptado una estrategia de desarrollo modular, separando componentes críticos en repositorios independientes. Esto permite actualizaciones granulares y facilita la colaboración.
+Para tener una mejor gestion del proyecto OpenMacedonIA, he decidido usar una arquitectura modular , separando las partes mas actualizadas y modificadas en repositorios independientes. Esto permite actualizar diferentes partes sin romper todo el sistema. Estos modulos (repositorios) son: 
 
-* **WatermelonD (Core):** Repositorio principal que contiene el nucleo principal `NeoCore`, el gestor de audio y la integración básica.
-* **BrainNut:** Módulo de Inteligencia Artificial que gestiona los modelos LLM (Gemma y Grape) y la lógica de razonamiento. Se mantiene separado para permitir actualizaciones de su logica sin tocar el núcleo.
-* **TangerineUI:** Interfaz Web moderna y reactiva. Permite actualizarse sin romper el backend
-* **BlueberrySkills:** Repositorio de habilidades. Permite agregar funcionalidades extra al sistema sin tocar el nucleo
+* **WatermelonD:** Repositorio principal que contiene el nucleo principal `NeoCore`, el gestor de audio y el orquestador del resto de modulos.
+* **BrainNut:** Contiene la logica de ejecucion de los grape-models y de Gemma
+* **TangerineUI:** Contiene la consola de administracion Web (WebUI) y la interfaz visual (/face).
+* **BlueberrySkills:** Repositorio de skills. Aqui se almacenan todas las skills que el sistema necesita para funcionar.
 * **WatermelonExtras:** Extensiones que no son esenciales para que el sistema funcione y se pueden instalar como añadidos
 
 # 6. Propuesta técnica
@@ -286,20 +478,19 @@ A diferencia de los asistentes  tradicionales, el sistema se estructura sobre un
 
 ## 6.1 Capa de Percepción (Entrada):
 
-* **Lime-Voice (Voice Manager):** RResponsable de convertir de audio a texto (STT). Hace uso de Vosk o Sherpa-ONNX, que funciona de manera completamente offline, implementa un sistema de gramáticas dinámicas para restringir el vocabulario a lo que el sistema debe reconocer y asi aumentar la precisión, incorpora un VAD (Detector de actividad de voz), para solo procesar cuando detecta la palabra de activacion
+* **Lime-Voice (Voice Manager):** Responsable de convertir de audio a texto (STT). Hace uso de Vosk o Sherpa-ONNX, que funciona de manera completamente offline, implementa un sistema de gramáticas dinámicas para restringir el vocabulario a lo que el sistema debe reconocer y asi aumentar la precisión, incorpora un VAD (Detector de actividad de voz), para solo procesar cuando detecta la palabra de activacion
 * **Visión Manager:** (Opcional) Detección de presencia y reconocimiento facial mediante OpenCV.
 
 ## 6.2 Capa Cognitiva (Procesamiento):
 
-* **Grape-Route (Decision Router):** Un modelo de clasificacion basado en **Transformers (BERT)** que analiza la entrada de voz y la enruta al módulo adecuado (Sistema, Conversación, IoT, etc.), reemplazando los sistemas de coincidencia difusa.
-* **BrainNut (AI Engine):** El núcleo que se encraga de la inteligencia. Integra:
+* **Grape-Route (Decision Router):** Un modelo de clasificacion basado en **Transformers (BERT)** que analiza la entrada de voz y la enruta al módulo adecuado, remplazaza al sistema de coincidencia difusa.
+* **BrainNut (AI Engine):** Se encarga de la inteligencia del sistema. Integra:
 	  * **Gemma 2B (LLM):** Para razonamiento complejo y conversación general.
-	  * **BrainNut-T5 (antes Mango):** Modelos entrenados para la traducción de lenguaje natural a comandos Bash (nl2bash)
-* **Memoria (RAG):** Sistema basado en ChromaDB/SQLite para almacenamiento de documentación y contexto
+	  * **BrainNut-T5 (antes Mango):** Modelos entrenados para la traducción de lenguaje natural a comandos Bash (nl2bash y nl2docker)
 
 ## 6.3 Capa de acción y gestión (salidas):
 
-* **BlueberrySkills:** Colección de habilidades (SysAdmin, Network, Docker) que ejecutan las acciones finales.
+* **BlueberrySkills:** Colección de habilidades (SysAdmin, Network, Docker) que ejecutan las acciones finales. 
 * **Altavoz (TTS):** Motor de síntesis de voz basado en Pipper, genera una voz casi humana
 * **TangerineUI:** Interfaz Web y panel de control visual para administración remota.
 
@@ -310,9 +501,9 @@ El stack tecnológico busca en su totalidad apoyarse en tecnologías código abi
 - **Lenguajes de programación:** El lenguaje principal es Python 3.10, debido que es el lenguaje predominante a la hora de trabajar con Inteligencia Artificial y tiene una capacidad nativa para trabajar con sistemas Linux. En cuanto a lenguajes secundarios, usamos Shell Script para la automatización de la instalación, SQL para la gestión de la base de datos, HTML y CSS para la interfaz web
 - **Hardware Base:** En principio se optó por una raspberry pi por su bajo consumo y pequeño tamaño, pero al final se está usando un viejo PC Lenovo Yoga 530-14ikb. Finalmente debido a que el pc no ha podido mas se esta usando una maquina virtual con dos nucleo y 7Gb de ram
 - **Backend Web:** Se usa un servidor flask desplegado desde python
-- **Gestión de procesos:** Para la gestión pocesos del sistema y del asistente se usa systemd integrado en sistemas Linux
-- **Frameworks de IA:** Pytorch y Llama.cpp
-- **Entrenamiento de modelos**: Google Colab Pro, con los kernels T4 y L4
+- **Gestión de procesos:** Para la gestión de los procesos del sistema y del asistente, se usa systemd integrado en sistemas Linux.
+- **Frameworks de IA:** Pytorch, Llama.cpp y Transformers.
+- **Entrenamiento de modelos**: Google Colab Pro, con los kernels T4 y L4 y Jupyter Notebook desde Visual Studio Code
 
 # 7. Justificación de la propuesta
 
@@ -322,31 +513,9 @@ Este sistema solventa tres necesidades críticas en la Administración de sistem
 2. **Manos libres en entornos técnicos:** Un administrador de sistemas a menudo realiza tareas físicas donde el acceso a un teclado puede ser difícil. Con WatermelonD pueden hacer consultas sobre el estado de un sistema, recibir información de red o desplegar contenedores, optimziando las tareas que realiza
 3. **Código Abierto:** Su código abierto y su arquitectura modular permiten que se agreguen plugins y nuevas características con solo un par de líneas de código, esto permite a los administradores, personalizar el sistema a sus necesidades
 
-# 8. Implantación
+# 8. Viabilidad y Aspectos Económicos
 
-## 8.1 Requisitos de despliegue
-
-El despliegue del sistema requiere de un entorno Linux compatible con una arquitectura x86_64. Los requisitos mínimos son los siguientes:
-
-- **Sistema Operativo:** Debian 11/12
-- **Hardware:**
-	  - **RAM:** Mínimo 6Gb (LLM Ligero Phi3 o TinyLlama ). Recomendado 8GB
-	  - **CPU:** Procesador x86_64 compatible con el set de instrucciones AVX2
-	  - **Disco Duro:** SSD o Nvme 64Gb mínimo
-	- **Conectividad:** Para la primera instalación se requiere una conexión a internet estable ya que hay que descargar una gran cantidad de datos
-
-## 8.2 Proceso de instalación
-
-El proceso de instalación se ha simplificado mediante un script grafico (install.sh) que hace uso de whiptail para mostrar una interfaz mas amigable, que automatiza todo el despliegue del sistema:
-
-1. **Detección y preparación:** El script detecta la distribución Linux (Debian/Ubuntu u Otro) y procede segun lo que detecte
-2. **Entorno aislado:** Se configura un entorno virtual de python (venv) para evitar conflictos con librerías del sistema.
-3. **Descarga de modelos:** Se obtienen y verifican mediante hash los modelos de inteligencia artificial, modelos acústicos y voces.
-4. **Demonización:** Se genera una archivo de systemd, para que el asistente se inicie automáticamente con el sistema
-
-# 9.Viabilidad y Aspectos Económicos
-
-## 9.1 Empresa: MacedonIA Solutions
+## 8.1 Empresa: MacedonIA Solutions
 
 Somos una empresa tecnológica enfocada en el uso de la inteligencia artificial para Pymes y departamentos de IT buscamos crear herramientas seguras y fáciles de usar que reduzcan la carga de trabajo en los administradores de sistemas.
 **Modelo de Negocio:**
@@ -355,11 +524,11 @@ Somos una empresa tecnológica enfocada en el uso de la inteligencia artificial 
 - **Soporte Técnico:** Mantenimiento, actualización de modelos y resolución de incidencias
 - **Personalización:** Desarrollo de skills personalizadas a medida para integrar sistemas y herramientas en OpenMacedonIA
 
-## 9.2 Presupuesto
+## 8.2 Presupuesto
 
 A continuación se detallan el coste aproximado del desarrollo del prototipo funcional de este proyecto.
 
-### 9.2.1 Hardware
+### 8.2.1 Hardware
 
 | Concepto                   | Modelo                    | Coste     | Notas       |
 | :------------------------- | :------------------------ | :-------- | :---------- |
@@ -370,7 +539,7 @@ A continuación se detallan el coste aproximado del desarrollo del prototipo fun
 | **Varios**           | Cables, periféricos, etc | 20,00eur  |             |
 | **Total**            |                           | 96,00 eur |             |
 
-### 9.2.2 Software
+### 8.2.2 Software
 
 | Concepto                      | Descripción     | Coste     | Notas        |
 | :---------------------------- | :--------------- | :-------- | :----------- |
@@ -378,7 +547,7 @@ A continuación se detallan el coste aproximado del desarrollo del prototipo fun
 | **DataSheets**          | HugguinFace Pro  | 9,00 eur  |              |
 | **Total**               |                  | 20,99 eur |              |
 
-### 9.2.3 Total
+### 8.2.3 Total
 
 | Concepto           | Coste      |
 | :----------------- | :--------- |
@@ -387,21 +556,18 @@ A continuación se detallan el coste aproximado del desarrollo del prototipo fun
 | **Total**    | 116,99 eur |
 
 # ANEXO I: Manual de Usuario y Administración
-
 ## 1. INSTALACIÓN Y DESPLIEGUE
 
 ## 1.1 Requisitos del sistema
 
 Para garantizar que todo funcione de manera fluida, especialmente el modelo LLM Gemma, se deben cumplir una serie de requisitos
-
 ### 1.1.1 Hardware
-
 * **Procesador:**
 	* *Arquitectura*: x86_64 (PC/Portátil)
 	* *Instrucciones*: Se recomienda un procesador con soporte para **AVX2**
-	* *Nucleos*: Minimo 2 nucleos fisicos
+	* *Núcleos*: Minimo 2 nucleos fisicos
 * **Memoria Ram:**
-	* *Mínimo*: 6Gb (El sistema irá lento y se necesitaría usar un modelos mas ligero como Phi3)
+	* *Mínimo*: 6Gb
 	* *Recomendado*: **8Gb** o más
 * **Almacenamiento:**
 	 * **SSD** (SATA o NVMe)
@@ -411,18 +577,14 @@ Para garantizar que todo funcione de manera fluida, especialmente el modelo LLM 
 	 * Altavoces
 	 * Cámara (Opcional)
 	 * Pantalla (Opcional)
-
 ### 1.1.2 Software
-
 * **Sistema Operativo:**
 	* **Debían 11/12** (Recomendado para la mayor estabilidad)
 	* **Ubuntu 22.04/24.04 LTS** (Soportado)
 	* **Raspberry Pi OS (64-Bit)** (El soporte de ARM es experimental)
 	* **Fedora 40+** (Soporte experimental)
 * **Dependencias base:** curl wget git python3
-> Se recomienda un sistema operativo sin interfaz grafica
-
-
+> Se recomienda un sistema operativo sin interfaz gráfica
 
 ## 1.2 Preparación del entorno
 
@@ -459,18 +621,17 @@ El repositorio de Git incluye un script de instalación **install.sh**, que auto
 5. Crea un entorno virtual (venv) e instala las dependencias desde el requirements.txt
 6. Descarga los modelos:
    * Vosk (Reconocimiento de voz),
-   * Sherpa-ONNX (Si el usuario lo selecciona)
+   * Sherpa-ONNX (Reconocimiento de voz)
    * Piper (síntesis de voz),
    * Gemma 2B (LLM).
    * Grape-Models
-   * lemon-route
+   - Grape-router
 7. Configura el servicio **systemd** para ejecutar el servicio al arranque del sistema
 
 **Ejecución del script:**
 ```bash
 chmod x install.sh && .install.sh
 ```
-
 > El script solicitara la contraseña de administrador cuando sea necesario
 ## 1.4 Verificación de la instalación
 
@@ -517,7 +678,7 @@ Toda la configuración se almacena en `config/config.json`.Este archivo se gener
         "neo",
         "tio",
         "bro",
-        "melon"
+        "wamd"
     ],
     "secret_key": "", //Dejar vacio el sistema la genera
     "stt": {
@@ -541,10 +702,8 @@ Toda la configuración se almacena en `config/config.json`.Este archivo se gener
     "admin_pass": "admin"
 }
 ```
-
 ### 2.2 Personalización de la Palabra de Activación
 Para cambiar el nombre al que responde el asistente:
-
 1. Editamos `config/config.json`
 2. Modificamos el valor de “wake word”. Puede ser una lista de palabras
 ```json
@@ -559,7 +718,7 @@ systemctl –user restart neo.service
 * **LLM (Gemma):** La ruta al modelo *.gguf* se define en `ai_model_path`. Si se quiere cambiar el modelo, se descargaría uno diferente en la ruta `models/` y se actualizará la ruta en el json
 * **Voz (Piper):** Los modelos de voz se encuentran en `piper/`. Para cambiar la voz se debe descargar el modelo *.onnx* y su *.json* correspondiente, y actualizar todas las referencias en el código (Actualmente no se permite cambiar la voz de manera fácil)
 
-### 2.4 Configuración de Red y MQTT
+### 10.4 Configuración de Red y MQTT
 El proyecto, utiliza MQTT para comunicarse con otros dispositivos (BerryConnect)
 
 * **Broker** usa por defecto `localhost`. Si ya se tiene un broker central en la red, cambia `"broker": "IP_DEL_BROKER"`.
@@ -605,7 +764,7 @@ WamtermelonD procesa algunos comandos de manera inteligente para no saturar la s
 
 * **Listas (`ls`)**: Si hay muchos archivos anunciara el total de las lineas y lee los tres primeros
 * **Logs**: Lee solo las dos ultimas lineas
-* **Salidas extensas**: Si el resultado supera los 400 caracteres, lo guardara de manera automática en un archivo de texto y nos dira la ubicacion del mismo
+* **Salidas extensas**: Si el resultado supera los 400 caracteres, lo guardara de manera automática en un archivo de texto y nos dirá la ubicación del mismo
 
 ### 3.2 Interacción Conversacional (Gemma 2B)
 Si el comando no coincide con una de las instrucciones predefinida o el router lo clasifica como `[gemma]`:
@@ -629,16 +788,10 @@ Podemos acceder a la interfaz web en `localhost:5000` y a la interfaz visual (fa
 ### 3.4 Uso del explorador de archivos
 El sistema permite buscar archivos en el sistema local, haciendo uso de uno de los modelos Grape para la generación del comando y una skill para la ejecución en el sistema
 
-* **Búsqueda:** “Wamd, buscame el archivo apuntes.pdf”
+* **Búsqueda:** “Wamd, búscame el archivo apuntes.pdf”
 * **Lectura:** “Wamd, muéstrame el archivo notas.txt”
 
-> Esta funcion se encuentra en fase experimental y va cuando quiere, el mostrar archivo requiere de una pantalla
-
-### 4.5 Gestión del conocimiento
-WatermelonD tiene la capacidad de aprender de documentos del usuario, esto permite que el sistema tenga conocimientos de manuales del usuario o documentación de sistemas usados (Actualmente solo soporta PDF, TXT y MD)
-
-> Esta función puede hacer que el modelo LLM alucine generando respuestas poco coherentes
-
+> Esta función se encuentra en fase experimental y va cuando quiere, el mostrar archivo requiere de una pantalla
 ## 4. MANUAL DE ADMINISTRACIÓN
 ### 4.1 Gestión del Servicio (systemd)
 El servicio se llama `neo.service` y se ejecuta al nivel del usuario `--user`
@@ -666,25 +819,23 @@ Podemos monitorizar el estado del sistema de dos maneras, mediante el uso de los
 > Esta función está en fase experimental y hace uso de un modelo de IA
 
 OpenMacedonIA permite conexiones SSH usando la voz gracias a una skill, esta puede:
-* **Añadir Servidores:** Actualemnente se agregan con la primera configuracion del sistema o mediante la interfaz web
+* **Añadir Servidores:** Actualmente se agregan con la primera configuración del sistema o mediante la interfaz web
 * **Conexión:** Conectarse a un servidor por ssh
-* **Gestion:** Permite copiar archivos entre sistemas con el comando `scp`
+* **Gestión:** Permite copiar archivos entre sistemas con el comando `scp`
 
 ### 4.4 Seguridad y “Guard”
-El módulo “Guard”, monitorea logs del sistema, en busca de accesos no autorizados, las alertas se anuncia por voz y por notificacion web
+El módulo “Guard”, monitorea logs del sistema, en busca de accesos no autorizados, las alertas se anuncia por voz y por notificación web
 
 ### 4.5 Mantenimiento y Actualizaciones
 Para actualizar OpenMacedonIA tenemos dos opciones:
-
 **Manual**
 1. Nos situamos en el directorio `cd ~/WatermelonD`
 2. Descargamos los cambios `git pull`
 3. Ejecutamos, `source venv/bin/activate && pip install -r requirements.txt` (por si hubiera cambios de dependencias).
 4. Reiniciamos el servicio `systemctl --user restart neo.service`
-
 **Desde la Web:**
-1. En la pestaña **Acciones**
-2. En acciones > **Actualizar NEO**
+5. En la pestaña **Acciones**
+6. En acciones > **Actualizar NEO**
 
 ## 5. CONFIGURACION AVANZADA
 ### 5.1 Ajuste Fino de Vosk
@@ -696,7 +847,7 @@ El reconocimiento de voz de Vosk. Se puede modificar en *modules/voice_manager.p
 ### 5.2 Personalización de la UI Web
 La interfaz web se encuentra en *web/templates/face.html* y *web/static/*.
 
-* **CSS:** Se pueden modificar los colores y animaciones, se puede aplicar un css personalizado desde la consola de administracion
+* **CSS:** Se pueden modificar los colores y animaciones, se puede aplicar un css personalizado desde la consola de administracion o desde la WebUI
 * **Imágenes:** Se pueden modificar los iconos o avatares
 
 ### 5.3 Parámetros Ocultos
@@ -717,12 +868,11 @@ El sistema se ha construido sobre un tecnologias modernas y eficientes, siempre 
 * **Interfaz LLM:** *llama.cpp* (haciendo uso de *llama-cpp-python*) con soporte para instrucciones AVX2/AVX512 y aceleración Metal (MacOS) o CUDA (Nvidia)
 * **E/S de Audio:** *Pyaudio* interactuando directamente con la capa ALSA de Linux para disminuir la latencia, evitando servidores de sonido como PulseAudio
 * **Motor STT (Voz a texto):**
-	* *Vosk*: Utiliza modelos de grafos FST, es muy robusto pero el reconocimiento algo pobre si hablas rapido
+	* *Vosk*: Utiliza modelos de grafos FST, es muy robusto pero el reconocimiento algo pobre si hablas rápido
 	* *Sherpa-ONNX*: Motor de nueva generación, basado en Whisper, optimizado para sistemas de recursos limitados
 * **Motor TTS (Texto a voz):** *Piper*, usa modelos neuronales, es rápido y está altamente optimizado para usarse en CPU
 * **Bus de Eventos:** MQTT v3.1.1 (*Mosquito*), para la comunicación entre dispositivos
 * **Base de Datos:** SQLite 3
-* **Base de datos de vectores**: *ChromaDB* para el sistema de memoria documental (RAG)
 * **NL2BASH (Lenguaje Natural a Bash)**: *Grape-models*, para traducir comandos complejos
 
 ### 1.3 Filosofía de diseño
@@ -805,7 +955,6 @@ Se evita el uso de PulseAudio/PipeWire para evitar latencias innecesarias y el a
 Algunas librerías requieren ser compiladas de una forma específica para utilizar al máximo la capacidad del sistema de destino. Instalar las versiones genéricas de estas librerías usando el gestor de paquetes pip o uv puede causar grandes pérdidas de rendimiento (50-150%).
 
 **FANN (Fast Artificial Neural Network):** Utilizada por *Padatius* para la clasificación de intentos mediante redes neuronales simples.
-
 ```bash
 # Dependencias de compilación
 sudo apt install libfann-dev swig
@@ -833,7 +982,6 @@ Se recomienda el uso de entornos virtuales (*venv*) para aislar los paquetes de 
 
 ### 3.3 Despliegue de modelos (GGUF & ONNX)
 El sistema soporta carga dinámica, pero se recomienda una pre-carga de los modelos durante el despliegue.
-
 * **GGUF (Gemma):** Para el mapeado en memoria, se requiere que el archivo no esté fragmentado en el disco. Se recomienda usar sistemas de archivos como `EXT4`  o `XFS`.
 * **ONNX (Sherpa/Piper):** Se ejecuta mediante *onnxruntime*
 	* **Optimización:** Si tenemos  una GPU Nvidia podemos usar *onnxruntime-gpu,* para CPUs podemos usar *onnxruntime-openvino*
@@ -922,18 +1070,14 @@ profile neo /home/usuario/WatermelonD/venv/bin/python3 {
 #include <abstractions/python>
 #include <abstractions/audio>
 
-# Network access
  network inet tcp,
  network inet udp,
 
-# Read project files
  /home/usuario/WatermelonD/** r,
  
-# Write logs and db
  /home/usuario/WatermelonD/logs/** rw,
  /home/usuario/WatermelonD/database/** rw,
  
-# Deny execution of other binaries
  deny /bin/bash x,
  deny /usr/bin/curl x,
 }
@@ -973,16 +1117,15 @@ Configurar Flask para usar estos certificados (`ssl_context=('cert.pem', 'key.pe
 
 **Estimación** de consumo en reposo vs carga máxima.
 
-| Componente       | RAM (Reposo)     | RAM (Carga)      | Notas                                |
-| :--------------- | :--------------- | :--------------- | :----------------------------------- |
-| Kernel + OS      | 150 Mb           | 200 Mb           | Debian Minimizado                    |
-| NeoCore (Python) | 1 Gb             | 2 Gb             | Servicio Base                        |
-| Vosk             | 600 Mb           | 800 Mb           | Modelos small (es)                   |
-| Gemma 2B         | 0 Mb             | 3 Gb             | —----                               |
-| TTS              | 0 Mb             | 1 Gb             |                                      |
-| ChromaDB         | 50Mb             | 200Mb            | Depende del numero de documentos     |
-| Grape-Models     | 0Mb              | 300Mb            |                                      |
-| **TOTAL**  | **~2,5Gb** | **~7,5Gb** | **En RPI requiere swap (2Gb)** |
+| Componente       | RAM (Reposo) | RAM (Carga) | Notas                          |
+| :--------------- | :----------- | :---------- | :----------------------------- |
+| Kernel + OS      | 150 Mb       | 200 Mb      | Debian Minimizado              |
+| NeoCore (Python) | 1 Gb         | 2 Gb        | Servicio Base                  |
+| Sherpa-ONNX      | 500 Mb       | 1 Gb        | Modelos small (es)             |
+| Gemma 2B         | 0 Mb         | 3 Gb        | —----                          |
+| TTS              | 0 Mb         | 1 Gb        |                                |
+| Grape-Models     | 0Mb          | 300Mb       |                                |
+| **TOTAL**        | **~2,0Gb**   | **~7,0Gb**  | **En RPI requiere swap (2Gb)** |
 
 # ANEXO III: ARQUITECTURA INTERNA E INTELIGENCIA ARTIFICIAL
 
@@ -1025,11 +1168,8 @@ El sistema opera en un ciclo continuo inspirado en el bucle OODA (Observe, Orien
 
 ### 1.3. Principios de Diseño Ético y de Seguridad
 Dado que el sistema tiene capacidades de administración (SSH, ejecución de comandos), la arquitectura incorpora "salvadidas":
-
 * **Mínima Sorpresa:** El sistema siempre debe confirmar acciones destructivas.
 * **Privacidad por Diseño:** El procesamiento de voz y texto es 100% local. No se envían datos a la nube por defecto.
-
----
 
 ## 2. ARQUITECTURA COGNITIVA
 
@@ -1073,8 +1213,6 @@ El sistema implementa un mecanismo de atención básico:
 1. **Foco Principal:** La interacción de voz actual.
 2. **Interrupciones:** Alertas críticas de sistema (ej. "Temperatura CPU Crítica") pueden interrumpir cualquier estado.
 3. **Timeout:** Si el sistema espera una entrada y no lo recibe en un tiempo predefinido, vuelve al estado de espera.
-
----
 
 ## 3. COMPRENSIÓN DEL LENGUAJE NATURAL (NLU)
 
@@ -1135,7 +1273,7 @@ self.classifier = pipeline(
 
 #### 3.4.2. Posición en el flujo de las Decisiones
 
-![[User Input Processing-2026-02-18-191019.png]]
+![](images/User%20Input%20Processing-2026-02-18-191019.png)
 
 ### 3.5. Motor de Traducción de Comandos: Grape-models
 Para comandos mas avanzados del sistema que requieren una traducción precisa a Bash (ej. Docker), se utiliza un modelo **Encoder-Decoder (T5)** ajustado (Fine-Tuned). La implementación se encuentra en `modules/BrainNut/engine.py`
@@ -1147,7 +1285,7 @@ Se seleccionó `salesforce/codet5-base` (~770M parámetros) frente a modelos sol
 * **Eficiencia:** Con 770M  de parámetros, es ligero y eficiente.
 
 #### 3.5.2. Flujo de Inferencia
-![[User Input Processing-2026-02-18-191527.png]]
+![](images/User%20Input%20Processing-2026-02-18-191527.png)
 
 #### 3.5.3. Sistema de Semáforo de Seguridad
 Tras generar un comando, NeoCore aplica un semáforo de seguridad, para evitar romper el sistema:
@@ -1172,17 +1310,15 @@ Almacenada en `database/brain.db`, gestionada por `DatabaseManager`
 
 ### 4.3. Esquema Completo de Base de Datos
 
-| Tabla               | Campos clave                                                               | Propósito                                             |
-| :------------------ | :------------------------------------------------------------------------- | :----------------------------------------------------- |
-| `history`         | `user_input`, `assistant_response`, `intent_detected`, `timestamp` | Registro histórico de todas las interacciones         |
-| `facts`           | `key` (UNIQUE), `value`, `confidence`                                | Memoria semántica — hechos enseñados por el usuario |
-| `aliases`         | `user_phrase` (UNIQUE), `canonical_command`                            | Alias aprendidos (one-shot learning)                   |
-| `episodic_events` | `event_type`, `details`, `sentiment`, `context_snapshot`           | Eventos con contexto (snapshot del sistema)            |
-| `concepts`        | `word` (PK), `frequency`, `avg_sentiment`                            | Knowledge Graph — nodos                               |
-| `relations`       | `source`, `target`, `relation_type`, `weight`                      | Knowledge Graph — aristas                             |
-| `surprises`       | `topic`, `message`, `timestamp`                                      | Anomalías detectadas                                  |
-| `daily_summaries` | `date` (UNIQUE), `summary`                                             | Resúmenes diarios de consolidación                   |
-| `file_index`      | `path` (PK), `name`, `extension`, `size`, `mtime`                | Índice de archivos del sistema                        |
+| Tabla             | Campos clave                                                       | Propósito                                           |
+| :---------------- | :----------------------------------------------------------------- | :-------------------------------------------------- |
+| `history`         | `user_input`, `assistant_response`, `intent_detected`, `timestamp` | Registro histórico de todas las interacciones       |
+| `facts`           | `key` (UNIQUE), `value`, `confidence`                              | Memoria semántica — hechos enseñados por el usuario |
+| `aliases`         | `user_phrase` (UNIQUE), `canonical_command`                        | Alias aprendidos (one-shot learning)                |
+| `episodic_events` | `event_type`, `details`, `sentiment`, `context_snapshot`           | Eventos con contexto (snapshot del sistema)         |
+| `surprises`       | `topic`, `message`, `timestamp`                                    | Anomalías detectadas                                |
+| `daily_summaries` | `date` (UNIQUE), `summary`                                         | Resúmenes diarios de consolidación                  |
+| `file_index`      | `path` (PK), `name`, `extension`, `size`, `mtime`                  | Índice de archivos del sistema                      |
 
 ### 4.4. Aprendizaje Adaptativo (Alias y Preferencias)
 Sistema de aprendizaje simple. Si el usuario corrige al asistente, se crea un alias 
@@ -1235,8 +1371,6 @@ Uso de `llama-cpp-python` con modelos GGUF y `mmap` para una carga mas rápida.
 ### 5.4. Ajuste Fino (Fine-Tuning) y LoRA
 Uso de Low-Rank Adaptation (LoRA) para adaptar el modelo base a la jerga de administración de sistemas sin reentrenarlo entero.
 
----
-
 ## 6. PROCESAMIENTO DE SEÑALES (LOS SENTIDOS)
 
 ### 6.1. Secuencia de Audio: VAD y Normalización
@@ -1263,7 +1397,6 @@ El `VoiceManager` soporta tres motores diferentes de reconocimiento de voz, por 
 | v2.5    | Vosk + Faster-Whisper  | Se soporta Whisper pero en el i3 es muy lento |
 | v3.0    | Vosk + Sherpa-ONNX     | Actual                                        |
 
----
 
 ## 7. COGNICIÓN MULTI-AGENTE
 
@@ -1279,7 +1412,6 @@ Evita el "efecto coro" cuando varios agentes detectan la palabra de activación 
 * **Jerarquía:** El nodo principal tiene prioridad sobre los nodos secundarios.
 * **Timestamp:** El ultimo agente en publicar tiene prioridad.
 
----
 
 ## 8. CASOS DE ESTUDIO DE INTERACCIÓN
 
@@ -1380,7 +1512,6 @@ Parámetros en `config.json`:
 # ANEXO IV: RESOLUCIÓN DE PROBLEMAS
 
 En este apartado se detalla toda la información sobre como solucionar los problemas que puedan surgir durante el despliegue del sistema
-
 ## 1. PROBLEMAS DEL USUARIO FINAL
 
 ### 1.1 Problemas de Audio
@@ -1461,7 +1592,6 @@ Este documento es una guía destallada para desarrolladores que buscan extender 
 Las Skills se almacenan en el directorio `modules/BlueberrySkills/`. Es un **submódulo de Git** independiente con su propio repositorio.
 
 ### 2.2. Estructura del Directorio
-
 ```
 modules/BlueberrySkills/
 ├── __init__.py          # Registro central de skills y funciones
@@ -1583,7 +1713,6 @@ El parámetro `core` proporciona acceso a todos los subsistemas:
 
 1. **No bloquear el hilo principal:**
    Si la Skill realiza una operación larga, se recomienda ejecutarla en un hilo separado (`threading.Thread`):
-
    ```python
    import threading
    def mi_funcion_larga(core, params=None):
@@ -1614,9 +1743,8 @@ El parámetro `core` proporciona acceso a todos los subsistemas:
 
 > Muchas de estas skills se estan eliminando ya que los Grape-Models hacen sus funciones de manera mas eficiente por lo que se fusionaran unas con otras o se eliminaran
 
-## 7. DESARROLLO COMUNITARIO (Watermelon-extras)
+## 7. NO ESENCIALES (Watermelon-extras)
 El submódulo `modules/Watermelon-extras/` aloja skills que no son esenciales para el funcionamiento del sistema:
-
 ```
 modules/Watermelon-extras/
 ├── alarms.py          # Alarmas con audio
@@ -1768,52 +1896,52 @@ Como imagen de debian usaremos el archivo ISO: `debian-13.3.0-amd64-DVD-1.iso`, 
 ### 3.1. Instalación del Sistema
 
 Debemos elegir la opción de **Instalar**. (La segunda)
-![alt text](image/PXL_20260207_164926514.jpg)
+![alt text](images/PXL_20260207_164926514.jpg)
 
 Las primeras opciones están relacionadas con el *Idioma*, *Región* y *Distribución del teclado*. Esto es a gusto del usuario final, pero en este caso usaremos **Español**
-![alt text](image/PXL_20260207_164941481.jpg)
-![alt text](image/PXL_20260207_164944937.jpg)
-![alt text](image/PXL_20260207_164948940.jpg)
+![alt text](images/PXL_20260207_164941481.jpg)
+![alt text](images/PXL_20260207_164944937.jpg)
+![alt text](images/PXL_20260207_164948940.jpg)
 
 Para el nombre de la maquina, dejare el por defecto, ya que esto no afecta al sistema final
-![alt text](image/PXL_20260207_171803920.jpg)
+![alt text](images/PXL_20260207_171803920.jpg)
 
 Ahora nos pregunta la contraseña del usuario administrador (root), este no es necesario habilitarlo, ya que el servicio funciona en la capa de usuario.
-![alt text](image/PXL_20260207_171811803.jpg)
+![alt text](images/PXL_20260207_171811803.jpg)
 
 Ahora en el nombre del usuario yo pondré *user*, pero podemos poner otra cosa, no afecta al sistema final
-![alt text](image/PXL_20260207_171821971.jpg)
+![alt text](images/PXL_20260207_171821971.jpg)
 
 Como contraseña se recomienda algo seguro (mínimo 8 caracteres y mezclar letras y numero), no el *1234* que yo he puesto
-![alt text](image/PXL_20260207_171829622.MP.jpg)
-![alt text](image/PXL_20260207_171836023.jpg)
+![alt text](images/PXL_20260207_171829622.MP.jpg)
+![alt text](images/PXL_20260207_171836023.jpg)
 
 En el particionado del disco, seleccionamos *Guiado - Utilizar todo el disco* (Segunda opcion) y despues seleccionamos el disco
-![alt text](image/PXL_20260207_171909395.jpg)
-![alt text](image/PXL_20260207_171916643.jpg)
+![alt text](images/PXL_20260207_171909395.jpg)
+![alt text](images/PXL_20260207_171916643.jpg)
 
 Al estar en una maquina virtual con espacio limitado, no veo necesario hacer particiones, en un sistema real no habría problema si el usuario quiere partcionar el disco siempre que tenga suficiente espacio luego para el despliegue (~65Gb).Por ello usamos *Todos los ficheros en una partición (Recomendado para novatos)* y confirmamos los cambios
-![alt text](image/PXL_20260207_171921564.jpg)
-![alt text](image/PXL_20260207_171930862.jpg)
-![alt text](image/PXL_20260207_171935739.jpg)
+![alt text](images/PXL_20260207_171921564.jpg)
+![alt text](images/PXL_20260207_171930862.jpg)
+![alt text](images/PXL_20260207_171935739.jpg)
 
 Seleccionamos en la lista la región de nuestra replica
-![alt text](image/PXL_20260207_172045392.jpg)
+![alt text](images/PXL_20260207_172045392.jpg)
 
 Ahora en la lista de replicas, se recomienda la primera o la segunda opción, ya que son las mas rápidas y estables.
-![alt text](image/PXL_20260207_172053178.jpg)
+![alt text](images/PXL_20260207_172053178.jpg)
 
 La encuesta de uso de paquetes es algo opcional, por costumbre doy que si ya que el software de gratis no esta de mas ceder algunos datos de uso.
-![alt text](image/PXL_20260207_172245163.jpg)
+![alt text](images/PXL_20260207_172245163.jpg)
 
 Ahora viene el paso clave, que es la diferencia entre un sistema optimizado y un sistema que come recursos sin limites. Tenemos que desmarcar todas las opciones y dejar solo **SSH Server** y **Utilidades estándar del sistema**
-![alt text](image/PXL_20260207_172302808.jpg)
+![alt text](images/PXL_20260207_172302808.jpg)
 
 Elegiremos continuar para reiniciar el sitema.
-![alt text](image/PXL_20260207_172438641.MP.jpg)
+![alt text](images/PXL_20260207_172438641.MP.jpg)
 
 Ahora iniciamos sesión en el sistema, verificamos que tengamos conexión de red, apuntamos la *dirección IP* y activamos el servicio *SHH* en el arranque (`systemctl enable ssh`) y en el momento (`systemctl start ssh`)
-![alt text](image/PXL_20260207_173523644.jpg)
+![alt text](images/PXL_20260207_173523644.jpg)
 
 ### 3.2 Despliegue del Servicio
 
@@ -1822,28 +1950,28 @@ Ahora iniciamos sesión en el sistema, verificamos que tengamos conexión de red
 > Para el primer paso, nos desplazamos a la pagina de Github del [proyecto](https://github.com/OpenMacedonIA/WatermelonD), en ella nos desplazamos hasta que nos aparezca el campo con el comando para la instalacion automatizada
 > 
 
-![alt text](image/image-22.png)
+![alt text](images/image-22.png)
 
 Copiaremos el contenido de ese campo y lo pegaremos en la consola SSH que tenemos abierta, una vez pulsemos enter empezara una instalación automatizada, que nos hará una serie de preguntas durante la misma para personalizar un poco la instalación
-![alt text](image/image-23.png)
+![alt text](images/image-23.png)
 
 #### 3.2.1 Instalacion Automatizada
 
 > El instalador hace uso de whiptail, que es una utilidad para mostrar interfaces gráficas simples desde la propia consola, los sistemas debian la llevan instalada por defecto
 > La primera pregunta que tenemos es el directorio de instalación, se recomienda dejar el por defecto que es `~/watermelonD` pero podemos cambiarlo a uno de nuestra preferencia.
 
-![alt text](image/image-24.png)
-![alt text](image/image-25.png)
+![alt text](images/image-24.png)
+![alt text](images/image-25.png)
 
 Actualmente la rama main y rc son la misma ya que se fusionaron debido a que el proyecto ya es "semi-estable", por lo que no hay diferencia entre elegir una o otra. Para la instalación cogeremos **main**
-![alt text](image/image-26.png)
-![alt text](image/image-27.png)
+![alt text](images/image-26.png)
+![alt text](images/image-27.png)
 
 Si el instalador detectara que ya esta clonado  en la carpeta de destino, nos avisaría de ello, dándonos la opción de seguir y actualizar si *hay cambios*.
-![alt text](image/image-28.png)
+![alt text](images/image-28.png)
 
 Se cerrara whiptail, y el instalador empezara a descargar de manera automática el *repositorio principal*y *los submodulos*
-![alt text](image/image-29.png)
+![alt text](images/image-29.png)
 
 Para continuar se nos abrirá un menu con diferentes opciones que nos permite elegir el tipo de instalación, estas son:
 * **Instalacion ESTANDAR**: Instala todo el sistema y todas las funciones, aunque algunas nos las pregunta
@@ -1853,147 +1981,151 @@ Para continuar se nos abrirá un menu con diferentes opciones que nos permite el
 * **Herramientas / Mantenimiento**: Incluye herramientas que he ido usando durante el desarollo para arreglar pequeños error (La mayoria obsoletas)
 * **Salir**: Sale de la instalacion
   **Aqui usaremos la primera opcion**
-  ![alt text](image/image-30.png)![alt text](image/image-31.png)
+  ![alt text](images/image-30.png)![alt text](images/image-31.png)
 
 El instalador detectara el sistema en el que estamos, siendo las opciones *Debian/Ubuntu* o *Otros*, y en base a ello procede, nos pide la clave del usuario que la requiere para instalar los paquetes del sistema necesarios
-![alt text](image/image-32.png)
+![alt text](images/image-32.png)
 
 Nos pregunta si queremos instalar el *modo kiosko*, esto *solo* se debe instalar si tenemos una *pantalla* en el equipo, ya sea por que es un portátil (consume recursos innecesarios si no hay pantalla). Después si queremos *optimizar el sistema*, aquí cambiamos el nombre de hostname, agregamos unas entradas en el `/etc/hosts` y quita basura preinstalada (si la hay)
 
 Vamos a decir *Si* a todo para hacer la instalación completa
-![alt text](image/image-33.png)
+![alt text](images/image-33.png)
 Ahora comenzara una de las partes que *mas tiempo* toma, descargar los paquetes del sistema, dependiendo de la velocidad de internet puede tardar entre *5 - 15 minutos*
-![alt text](image/image-34.png)
+![alt text](images/image-34.png)
 
 En el proceso de descarga de paquetes, se instala *Tripwire*, esta es una utilidad para evitar modificaciones no autorizadas de fichero del sistema, *el configurarlo o no , no afecta al sistema final*, esto añade una capa de seguridad si el sistema esta expuesto a internet impidiendo que se modifiquen los ficheros.
 
 Para este despliegue lo vamos a usar, pulsamos *Si* para crear las claves de sitio y local y para crear la base de datos
-![alt text](image/image-35.png)
-![alt text](image/image-36.png)
-![alt text](image/image-37.png)
+![alt text](images/image-35.png)
+![alt text](images/image-36.png)
+![alt text](images/image-37.png)
 
 Después de un rato de descarga de paquetes, nos pedirá las claves de sitio y local, siguiendo el despliegue voy a  *1234* (esto no se debe hacer no es seguro).
-![alt text](image/image-38.png)
-![alt text](image/image-39.png)
+![alt text](images/image-38.png)
+![alt text](images/image-39.png)
 
 Para continuar, descargara la versión de *python* requerida, ya que no usa la que viene con el sistema por defecto usa una algo mas vieja, junto a ella se descarga *uv* que es un gestor de paquetes mas rápido de el integrado PIP.  Después crea el entorno virtual para que no haya conflictos con paquetes del sistema y para terminar con esta parte clona *FANN C* y lo compila, esto es para optimizar esta librería al sistema de destino
-![alt text](image/image-40.png)
+![alt text](images/image-40.png)
 
 Después *uv*, descargara e instalara las *librerías de python* requeridas para funcionar, igual que la instalación de paquetes del sistema, la velocidad de esta requiere de nuestro Internet tardando entre 5 - 10 minutos
-![alt text](image/image-41.png)
+![alt text](images/image-41.png)
 
 #### 3.2.2 Personalizacion
 Para continuar, el instalador nos preguntara si queremos personalizar el sistema, aquí se genera el fichero `config.json` en caso de pulsar *No*, se genera un fichero genérico.
 Para el despliegue usaremos *Si*
-![alt text](image/image-42.png)
+![alt text](images/image-42.png)
 
 Se dispone de dos modos, que son los siguientes:
 * **Simple**: Configura cosas esenciales (el nombre de usuario y las palabras de activación)
 * **Avanzado**: Configura lo anterior y le sumamos el puerto de la webUI, alias de servidores y equipos SSH.
   Seleccionamos el *Avanzado*
-  ![alt text](image/image-43.png)
-![alt text](image/image-44.png)
+  ![alt text](images/image-43.png)
+  ![alt text](images/image-44.png)
+
+ Aquí configuramos como queremos que el asistente se dirija a nosotros, por defecto es *Usuario*
+![alt text](images/image-45.png)
+
 Ahora nos permite añadir mas palabras de activacion, aparte de las incluidas.
 
 > Recomendación si queremos añadir una palabra por ejemplo *wamd* seria ideal añadir como se escribiría foneticamente *guamde*
 
-![alt text](image/image-47.png)
+![alt text](images/image-47.png)
 
 
  Aqui podemos agregar servidores ssh para que el sistema pueda conectarse a ellos.
 > Esta función usa un modelo que no esta disponible todavía dado que es mas complejo de entrenar que el resto
 
-![alt text](image/image-48.png)
+![alt text](images/image-48.png)
 
 Esta opción nos pide las siguientes opciones a la hora de agregar un servidor:
 * **Alias del servidor**: Este es el nombre que usamos para referirnos a el a la hora de hacer peticiones al asistente
-  ![alt text](image/image-49.png)
+  ![alt text](images/image-49.png)
 * **Host o direccion IP**: La direccion del servidor
-  ![alt text](image/image-50.png)
+  ![alt text](images/image-50.png)
 * **Usuario SSH:** El usuario con el que se inicia sesion por ssh en ese servidor
-  ![alt text](image/image-51.png)
+  ![alt text](images/image-51.png)
 * **Puerto:** Normalmente es el 22 pero hay gente que lo cambia
-  ![alt text](image/image-52.png)
+  ![alt text](images/image-52.png)
 * **Autenticacion:** Aqui nos da las dos opciones si es por medio de una clave o una contraseña, de ambas formas el sistema las almacena de forma segura las contraseñas van encriptadas
-  ![alt text](image/image-53.png)
+  ![alt text](images/image-53.png)
   * **Si cojemos autenticacion por clave:** Debemos copiar la clave privada previamente en el servidor o generarla desde el mismo
-    ![alt text](image/image-54.png)
+    ![alt text](images/image-54.png)
   * **Si cojemos autenticacion por contraseña**: El sistema nos pedirá la clave
-    ![[Captura desde 2026-02-07 19-03-40.png]]
-    ![alt text](image/image-55.png)
+    ![](images/Captura%20desde%202026-02-07%2019-03-40.png)
+    ![alt text](images/image-55.png)
     Y nos da la opción de agregar mas
-    ![alt text](image/image-56.png)
-    ![alt text](image/image-57.png)
+    ![alt text](images/image-56.png)
+    ![alt text](images/image-57.png)
 
 Ahora configuramos los alias de red, por defecto esta configurado `google=8.8.8.8` y `router=192.168.1.1`. 
 Con esta opción podemos usar utilidades de red sin recordar la IP, lo que permite decirle al asistente `haz ping a google` y que sepa donde esta *google*.
-![alt text](image/image-58.png)
-![alt text](image/image-59.png)
-![alt text](image/image-60.png)
+![alt text](images/image-58.png)
+![alt text](images/image-59.png)
+![alt text](images/image-60.png)
 
 Primero nos pide el nombre del alias
-![alt text](image/image-61.png)
+![alt text](images/image-61.png)
 Y despues su direccion IP
-![alt text](image/image-62.png)
-![alt text](image/image-63.png)
+![alt text](images/image-62.png)
+![alt text](images/image-63.png)
 Y nos pregunta si queremos agregar mas
-![alt text](image/image-64.png)
+![alt text](images/image-64.png)
 
 Aunque se permite cambiar el puerto de la interfaz web, no se recomienda, por dos razones:
 1. Habría que hacer ajustes manuales en diferentes archivos como el `.xinitrc` para cambiar la dirección a la que apunta chromiun en modo kiosko
 2. Implemente esto por que pensé que funcionaria. Cuando lo probé dejo de funcionar todo (se me olvida quitarlo).
-   ![alt text](image/image-65.png)
+   ![alt text](images/image-65.png)
 
 Las preferencias de voz no ha dado tiempo a que se puedan editar desde aquí, pero el sistema informa de donde pueden cambiarse
-![alt text](image/image-66.png)
-![alt text](image/image-67.png)
-![alt text](image/image-68.png)
+![alt text](images/image-66.png)
+![alt text](images/image-67.png)
+![alt text](images/image-68.png)
 
 #### 3.2.3 Configuración de la base de datos
 Para continuar con el despliegue, el sistema creara la base de datos
-![alt text](image/image-70.png)
+![alt text](images/image-70.png)
 
 #### Descarga de los modelos LLM/SLM
 Despues comenzara con la descarga de los modelos, estos modelos son:
 
 - *Sherpa-ONNX-Whisper-Small*
-![alt text](image/image-71.png)
+![alt text](images/image-71.png)
 - *Gemma2B*
-![alt text](image/image-72.png)
+![alt text](images/image-72.png)
 - *Grape-models*
-![alt text](image/image-73.png)
+![alt text](images/image-73.png)
 
 #### 3.2.4 Systemd, HTTPS y sudoers
 Tras la descarga creara los servicios *systemd* para el arranque del servicio en el sistema y configurara algunos permisos necesarios para que algunas utilidades funcionen
 
 > Esto requiere contraseña del usuario administrador
 
-![alt text](image/image-74.png)
+![alt text](images/image-74.png)
 
 Después genera el certificado autofirmado HTTPS y nos explica como se configura en los clientes
-![alt text](image/image-75.png)
+![alt text](images/image-75.png)
 
 Para finalizar configurara un fichero `sudoers` para dar al sistema ciertos permisos
-![alt text](image/image-76.png)
+![alt text](images/image-76.png)
 
 Para finalizar y que el sistema arranque, reiniciamos el sistema
-![alt text](image/image-77.png)
+![alt text](images/image-77.png)
 
 Con el comando `systemctl status --user neo.service`, podemos ver si todo ha salido bien y el servicio arranca
-![alt text](image/image-78.png)
+![alt text](images/image-78.png)
 
 ## 4. INTERFAZ WEB
 
-> Todo el código Web (frontend) ha sido desarrollado por un agente de IA, en base a dibujos que le he ido pasando de lo que quería.  Pongo esto por que se nota a distancia que he usado herramientas para hacerlo.
+> Todo el código Web (frontend) ha sido desarrollado por un agente de IA, en base a dibujos que le he ido pasando de lo que quería. Pongo esto por que se nota a distancia que he usado herramientas para hacerlo.
 
  Por defecto a la interfaz web se accede con las credenciales *admin/1234*, esta contraseña se puede cambiar desde el archivo `config/config.json`
 
 ### 4.1 La "Cara"
 
 Para acceder a la cara no se requieren credenciales
-Le llamo la cara pero ya no lo, al principio empezo siendo una cara como la de la siguiente imagen:
+Le llamo la cara pero ya no lo, al principio empezó siendo una cara como la de la siguiente imagen:
 
-![[Captura desde 2026-01-17 21-55-59.png]]
+![](images/Captura%20desde%202026-01-17%2021-55-59.png)
 
 Se basaba en el sphere de las vegas para que tuviera apariencia amigable, se tuvo que cambiar por que consumía  el 60% de los recursos mover esos ojos. 
 
@@ -2004,14 +2136,14 @@ Actualmente esta lo siguiente;  un orbe que hace como un efecto de respiración 
 - La generación del comando por los grape-models 
 - La salida del comando  
 También muestra el consumo de recursos, pero hay que remarcar este consumo de recursos no es del servidor es del sistema en el que se ejecuta la ventana web. Podemos acceder a esta ventana en `http://localhost:5000/face`
-![alt text](image/image-79.png)
+![alt text](images/image-79.png)
 
 ### 4.2 WebUI
 La WebUI esta dividida en varios menús cada una con una función. Esta un poco desactualizada y hay cosas que no van, pero da una idea de lo que se busca y el uso que tiene.
 La WebUI tiene tanto un modo claro como uno oscuro (aunque el claro te quema los ojos).
 
 Cuando el sistema se desconecta la interfaz web muestra un mensaje de *Conectando con WatermelonD*.
-![alt text](image/image-81.png)
+![alt text](images/image-81.png)
 
 #### 4.2.1 Dashboard
 Este panel muestra de un vistazo rápido:
@@ -2019,7 +2151,7 @@ Este panel muestra de un vistazo rápido:
 - También permite enviar comandos por medio de texto directamente al bus de escucha (para pruebas).
 - Un botón para silenciar el micrófono 
 - Una zona que indica si el sistema esta o no activo
-![alt text](image/image-82.png)
+![alt text](images/image-82.png)
 
 #### 4.2.2 Monitor del sistema
 Aquí nos encontramos con un monitor de recursos, y procesos. 
@@ -2029,7 +2161,7 @@ Podemos ver los procesos activos (aquí si es en el servidor) con:
 - **El consumo de CPU** (aquí vemos el consumo del modo kiosko que es bastante alto) 
 - **El uso de ram**. 
 En cuanto al monitor de recursos es en tiempo real haciendo uso de *graphana* para almacenar un pequeño margen del historial de consumo desde el inicio del sistema.
-![alt text](image/image-83.png)
+![alt text](images/image-83.png)
 
 #### 4.2.3 Herramientas de red
 Ahora nos encontramos la pestaña de herramientas de red. 
@@ -2038,14 +2170,14 @@ Nos permite :
 - Hacer un **test de velocidad** usando *speedtest-cli* 
 - Un **ping** al *8.8.8.8* 
 - **Escanear Wifi** para  conectar el sistema a Internet. (Conectar por wifi no va en la maquina virtual)
-![alt text](image/image-84.png)
+![alt text](images/image-84.png)
 
 #### 4.2.4 Terminal del sistema
 Aqui tenemos una terminal (no interactiva) para **ejecutar comandos simples**, esta se encuentra *enjaulada* en el directorio del usuario y no puede acceder a otros.
 
 > Cuando decimos que no es interactiva nos referimos a que no permite comandos que requieran una entrada por parte del usuario. Ej: sudo apt update
 
-![alt text](image/image-85.png)
+![alt text](images/image-85.png)
 
 #### 4.2.5 Logs
 Desde aquí podemos ver los logs del servicio.
@@ -2054,7 +2186,7 @@ Con los cambios que se han hecho en el sistema de logs a lo largo del proyecto, 
 
 > Se que en este log no va el sistema de audio, lleva asi como un mesy espero que este arreglado para la defensa de este proyecto
 
-![alt text](image/image-86.png)
+![alt text](images/image-86.png)
 
 #### 4.2.6 Acciones
 Desde este menu se pueden hacer acciones rápidas en el sistema, entre ellas tenemos:
@@ -2066,43 +2198,43 @@ Desde este menu se pueden hacer acciones rápidas en el sistema, entre ellas ten
 * **Crear Backup**: Crea una copia de seguridad de la configuracion `config/config.json`
 * **Reiniciar red**: Reinicia el servicio de red usando systemctl
   En la consola de debajo se visualiza la salida de estos comandos
-  ![alt text](image/image-87.png)
+  ![alt text](images/image-87.png)
 
 #### 4.2.7 Gestor de tareas (Cron)
 Esto es una interfaz para el cron, por si el usuario quiere ejecutar tareas, lo que se escribe aquí se almacena en el cron a nivel de usuario
-![alt text](image/image-88.png)
-![alt text](image/image-89.png)
+![alt text](images/image-88.png)
+![alt text](images/image-89.png)
 
 #### 4.2.8 Explorador de archivos
 Esta ventana al principio funcionaba un día toque algo y no volvió a funcionar, sigue aquí por que se me olvida quitarla, pero aquí tendríamos un explorador de archivos que permite visualizarlos.
-![alt text](image/image-90.png)
+![alt text](images/image-90.png)
 
 #### 4.2.9 Gestor de extensiones
 Desde aquí podemos ver las skills instaladas en el sistema, por desgracia no todas.
 Requiere referenciar la skill en los archivos de la web (no he conseguido que al meter una skill personalizada salga aquí su nombre automáticamente).
-![alt text](image/image-91.png)
+![alt text](images/image-91.png)
 Algunas de las skills que hay aquí permiten configuración,  esas son las siguientes: 
 
 * **Archivos**: Esta skill pre-escanea el sistema de archivos en cada inicio del sistema o 24 horas, desde aquí podemos configurar cada cuanto tiempo, archivos a escanear y las rutas. Tambien podemos ejecutar un escaneo
-  ![alt text](image/image-92.png)
+  ![alt text](images/image-92.png)
 * **SSH**: Aquí podemos agregar servidores ssh al sistema de la misma forma que desde el instalador
-  ![alt text](image/image-93.png)
+  ![alt text](images/image-93.png)
 * **Red**: Desde aquí agregamos servidores y sus alias igual que en el instalador
-  ![alt text](image/image-94.png)
+  ![alt text](images/image-94.png)
 * **Otras Skills**: Las skills sin configuración por interfaz gráfica tienen un editor json para editarlas por medio de código.
-  ![alt text](image/image-95.png)
+  ![alt text](images/image-95.png)
 
 #### 4.2.10 NLU
 Aquí nos aparecen las frases que el sistema no ha entendido.
 Se les puede asignar o una función o una skill. 
 Al pulsar en *Reiniciar WatermelonD*, lo hacemos es reentrenar la pequeña red neuronal agregando estos nuevos datos.
-![alt text](image/image-96.png)
+![alt text](images/image-96.png)
 
 #### 4.2.11 MQTT
 Esta es la ultima función agregada. Permite ver el estado de los agentes que usan el protocolo MQTT, desde aquí podemos: 
 - Ver los que están *conectados* y su *estado*. 
 - *Generar un script* personalizado para el despliegue en dispositivos **RaspberryPi**.
-![alt text](image/image-97.png)
+![alt text](images/image-97.png)
 
 > La ultima pestaña Ajustes un día dejo de funcionar y no he conseguido como repararla, se que esta relacionado con la libreria socket.io pero si la quito deja de funcionar toda la webUI
 
@@ -2186,6 +2318,153 @@ El flujo de la ejecución es el siguiente:
 6. El sistema ejecuta el comando y devuelve el resultado al usuario.
 7. Si la categoría no existe o la confianza es menor al umbral establecido, el sistema devuelve un error.
 
+## 3. CREACION DE LOS MODELOS 
+Este apartado detalla el proceso para entrenar los modelos, desde la obtencion de datos, hasta el proceso de entrenamiento, cuantificacion, testeo y despues su publicacion en HugguinFace 
+
+### 3.1 Seleccion Del Modelo Traductor
+Este proyecto ha ido usando diferentes tipos de modelos tanto LLM (Largue Lenguaje Model) como SLM (Small Lenguaje Model).
+#### 3.1.1 Pelea con los LLM
+En un principio se usaron modelos LLM para ser exactos Llama3B con un fine-tune para saber mucho sobre sistemas Linux, el problema es que el modelo al ser generativo y tan pequeño tendia mucho a alucinar, es decir generaba respuestas bastante creativas pero que se alejaban bastante del resultado esperado, por mucho que se reentrenara no conseguia que diera las respuestas esperadas.
+
+Despues se cambio al modelos Gemma2B que aunque es mas pequeño, habia leido que alucinaba menos y era cierto, pero sus respuestas seguian sin ser del todo coherentes.
+Despues de unos dos meses de pelea con los LLM, al final me di cuenta que habia que hacer un cambio de vision. Gemma se ha mantenido como parte del sistema, aunque sin ningun tipo de entrenamiento solo se usa para respustas complejas o preguntas mas genericas.
+
+Ambos modelos Llama y Gemma son increiblemente lentos en mi i3.
+#### 3.1.2 El descubrimiento
+Aqui es cuando descubri los modelos T5 (Text-to-Text Transfer Transformer), estos modelos aunque usan una arquitectura vieja (2019), me parecieron fascinantes las cosas que se pueden hacer con ellos. Su funcionamiento es muy simple, a diferencia de modelos GPT (Generative Pre-Trained) como Gemma y Llama, en los que les das una entrada de texto y te generan una salida prediciendo la siguiente palabra que tiene sentido en la generacion, los modelos T5 usan una arquitectura codificador-decodificador, que hace que procesen cualquier problema como una conversion *texto a texto*, en lugar de predecir la siguiente palabra el codificador analiza toda la entrada para comprender el contexto, despues genera la respuesta basada en el prefijo que se le añada al principio. Para este proyecto el prefijo es *traducir*. 
+
+Modelos como los T5 son los usados en los sistemas de traduccion donde el sistema recibe una frase por ejemplo en ingles y genera la salida en castellano. Pues con los grape-models tenemos lo mismo pero de **Lenguaje Natural** a **Bash**.
+
+Los modelos basados en la arquitectura T5 son muy rapidos y ligeros y al tener una unica tarea no tienen a alucinar tanto.
+
+#### 3.1.3 El ganador
+Dentro de los modelos T5, teniamos varias opciones, estaban los flan-t5 de google que son para proposito general, es decir hacen casi de todo, probe su entrenamiento y funcionaban bastante bien, pero les costaba entender la sintaxis de bash en algunos casos. Finalmente investigando descubri los modelos codert5 de SalesForce estos han sido creado con codigo, se diseñaron para programar y para entender codigo por lo que eran perfectos. 
+Salesforce tiene varias versiones del codert5, desde la mas pequeña small hasta la mas grande, pasando por una version mejorada que es la plus. Yo buscaba lo mas ligero posible y rapido, por lo que me quede con **Salesforce/codet5-small**. 
+
+
+### 3.2 El Modelo Router
+Aqui el trabajo fue mas rapido que con el modelo de traduccion, sabia que existian los modelos categorizadores, lo que no sabia es cuales eran. Investigue un poco y me encontre con **microsoft/Multilingual-MiniLM-L12-H384**, este es un modelo MLM (Mini Lenguaje Model) y esta diseñado para un unico proposito buscar coincidencias en una entrada de texto, si tu le dices perro el te dice animal, si le dices manzana te dice fruta y asi. Ni genera texto ni traduce comandos. 
+Para este proyecto no se le dice Manzana si no que se le pasa la entarda de voz del usuario convertida a texto y el devuelve una categoria.
+
+### 3.3 Obtencion de datos.
+La obtencion de datos ha pasado por varias fases, ya que en un primer momento se intento usar datos ya existentes en paginas como *Huggin Face* o *Kagle* que almacenan hojas de datos (datasheets) ya formateadas y listas para usar. La primer opcion fue el datasheet de NL2Bash esta es la fuente de datos por excelencia a la hora de entrenar modelos para generar comandos de Linux, pero tenia un problema estaba completamente en ingles y el modelo iba a operar en Castellano. Finalmente se opto por generar mis propios datasheets, no desde cero por que esto habria sido un trabajo muy duro. 
+
+Todos los datasheets usados son del tipo siteticos, esto significa que han sido generados por un modelo de LLM. El trabajo aqui se estructuro de la siguiente forma: 
+1. Se establecieron las categorias de los modelos a usar, en un papel junto con su nombre y su utilidad
+![alt text](images/Captura%20de%20pantalla_20260227_194331.png)
+2. Despues cree las primeras 20 lineas del primer modelo que hice (chardonay), el datasheet usado se puede ver [aqui](https://huggingface.co/datasets/jrodriiguezg/chandonay-nl2bash-es)
+> Estableci que iba a usar una entrada de contexto para que el modelo pudiera "ver" los archivos que tenia y el directorio en el que estaba 
+3. Cogi estas primeras 20 lineas y se las pase a Google Gemini 3 Pro, junto con una instruccion:
+```text
+Extiende estas lineas en formato Jsonl, agrega variaciones en el contexto, debes variar tanto el "ls" como el "pwd" usa rutas reales y listado de fichero reales. No uses comandos avanzados, ni pipes ni redirecciones 
+```
+4. Fui repitiendo la peticion hasta que genere unas 3000 lineas, revisando lineas aleatorias para ver que la generacion se estaba haciendo de la manera correcta
+5. Con el comando `shuf`, mezcle las lineas generadas. 
+6. Repeti este proceso con cada uno de los modelos
+
+En la siguiente imagen se puede ver una generacion para el datasheet del modelo malbec (docker)
+![alt text](images/Captura%20de%20pantalla_20260227_195130.png)
+
+#### 3.3.1 Variaciones 
+- Los modelos syrah (redes) y cabernet (ssh) tienen variacion en el campo del contexto en vez de recibir el *ls* y *pwd*, reciben tanto los hosts como servidores ssh definidos por el usuario.
+
+#### 3.3.2 Los datos del router
+El router es un modelo especial, ya que no recibe un datasheet, si no que recibe un archivo con posibles entradas que puede recibir del usuario y la salida que debe dar. Este fichero es el mas extenso de todos, ya que incluye miles de variaciones, y formas de pedir la misma cosa. Si los datos de los modelos anteriores tenian unas 3000 lineas, el router tiene mas de 10000. Esto se debe a que esta diseñado para no fallar en la decision. Actualmente este datashet no esta disponible en HugguinFace, pero aqui se muestra un ejemplo de sus lineas: 
+```jsonl
+{"text": "Busca la palabra 'error' en todos los logs.", "label": "pinot"}
+{"text": "Encuentra archivos modificados en las últimas 24 horas.", "label": "pinot"}
+{"text": "Busca recursivamente archivos .py que contengan 'import os'.", "label": "pinot"}
+{"text": "Localiza dónde está el binario de java.", "label": "pinot"}
+{"text": "Filtra las líneas que no empiecen por almohadilla.", "label": "pinot"}
+{"text": "Conéctame por ssh al servidor de producción.", "label": "cabernet"}
+{"text": "Copia este archivo al servidor remoto.", "label": "cabernet"}
+{"text": "Sincroniza la carpeta local con el servidor de backup.", "label": "cabernet"}
+{"text": "Descarga el log del servidor remoto a mi escritorio.", "label": "cabernet"}
+```
+Estos datos se han obtenido de la misma forma que los grape-models con arquitectura T5, es decir, se han generado sinteticamente usando un modelo de lenguaje.
+
+### 3.4 Entrenamiento de los modelos T5
+#### 3.4.1 Introduccion
+Todos los modelos usan el mismo script de entrenamiento y la misma base ya que de origen son iguales, lo unico que cambia es su datasheet.
+Los scripts de entrenamiento se pueden encontrar a continuacion, estan comentadas algunas partes para entender su funcionamiento:
+- [grape-trainer](https://github.com/OpenMacedonIA/grape-models-train-scripts/blob/main/grape-trainer.ipynb)
+- [grouter-trainer](https://github.com/OpenMacedonIA/grape-models-train-scripts/blob/main/grouter-trainer.ipynb)
+Entrenar modelos requiere de gran potencia de calculo, que suele sacarse de la GPU, mi portatil personal la tenia rota por lo que no podia usarlo, recurri a un servicio de google (Colab), este proporciona libretas de Jupyter y acceso a GPUs potentes para entrenar modelos, por unos 12 euros tenia acceso a tarjetas graficas de 24Gb de VRAM.
+Actualmente tengo un portatil nuevo en el que me puedo permitir entrenar los modelos de IA a una velocidad bastante alta
+
+#### 3.4.1 Entrenamiento
+Debido a que todos los entrenamientos son iguales, solo voy a mostrar el proceso de uno, este lo voy a mostrar desde mi maquina local ya que he agotado el saldo de Colab.
+
+En el visual studio code y con el notebook abierto, que es este archivo con terminacion *.ipynb*, tenemos que seleccionar el kernel a usar, he marcado donde se pulsaria. En mi caso dado que he entrenado varios modelos desde aqui ya tengo el kernel configurado con las librerias que se usan. La version de python que menos problemas da es *3.12*
+![alt text](images/Captura%20de%20pantalla_20260227_201239.png)
+
+Ahora debemos indicar en que directorio esta el datasheet, como este justo lo tengo en HugguinFace lo almaceno en la carpeta HF. Despues le indicamos el directorio de salida. 
+![alt text](images/Captura%20de%20pantalla_20260227_201627.png)
+
+Cuando tenemos todo configurado, podemos pulsar en el boton de play que hay en una esquina
+![alt text](images/Captura%20de%20pantalla_20260227_201746.png)
+
+Si nos desplazamos hacia abajo, vemos la salida de la ejeccucion, aqui tenemos algunos campos importantes
+1. Salida de la ejecucion
+  - `eval_loss`: Tasa de error, cuanto mas se acerque a *0* mejor
+  - `eval_runtime`: El tiempo que tarda en hacer el bloque
+  - `eval_samples_per_second`: La velocidad a la que va
+  - `eval_steps_per_second`: Cantidad de lotes procesador por segundo
+  - `epoch`: Indica el numero de vuelta que ha dado a todos los datos
+  - `loss`: Porcentaje de error 
+  - `grad_norm`: Ajustes matemativcos que actualizan el modelo
+  - `learning_rate`: Tasa de aprendizaje
+2. Las epocas, que lleva y que le quedan, nos referimos a epocas como pasadas completas por todos los datos.
+3. Tiempo que lleva y que le queda (Aproximado)
+![alt text](images/Captura%20de%20pantalla_20260228_104001.png)
+
+Cuando la primera celda termina de ejecutarse, pasamos a la siguiente, esta se encarga de tranformar el modelo al formato ONNX, debemos indicar donde se encuentra la salida de la ejecucion anterior y la salida de esta celda
+![alt text](images/Captura%20de%20pantalla_20260228_105321.png)
+![alt text](images/Captura%20de%20pantalla_20260228_105502.png)
+
+Ya pasariamos a la ultima celda, en esta se encarga de quatificar el modelo, es decir digamos que lo comprime, requiere de bastante potencia de calculo y le tenemos que pasar la salida de la celda enterior.
+![alt text](images/Captura%20de%20pantalla_20260228_105539.png)
+![alt text](images/Captura%20de%20pantalla_20260228_105713.png)
+
+Esta ultima celda se usa para testear el modelo, coge el modelo de la salida anterior y le pasa el prompt de prueba. Despues se le preguntan cosas y se ve la salida
+![alt text](images/Captura%20de%20pantalla_20260228_105813.png)
+
+Este tests, hace pruebas cargando el modelo en CPU y ha salido bastante bien 
+![alt text](images/Captura%20de%20pantalla_20260228_110040.png)
+
+#### 3.4.2 Subida a HuggingFace
+Para un mejor control de los modelos, estos los subo a HugguinFace que es como github pero para modelos y datasets de IA. Tenerlos aqui, permite que el sistema los descargue en el momento de la instalacion o los actualice de manera individual cuando haya cambios. 
+
+Para subir cambios a github, debemos estar en un directorio que sea un clone del repositorio original de hugguin face, en mi caso en la carpeta HF, almaceno estos clones.
+![alt text](images/Captura%20de%20pantalla_20260228_110325.png)
+
+Ahora los pasos son por comandos, y se requiere que este un token de hugguin face en el entorno de python, para ello ejecutamos el siguiente comando:
+```bash
+huggingface-cli login
+```
+Una vez este el token configurado subimos los archivos 
+```bash 
+huggingface-cli upload usuario/repositorio  . --repo-type model
+``` 
+![alt text](images/Captura%20de%20pantalla_20260228_110519.png)
+Aqui vemos los archivos del modelo en HuggingFace
+![alt text](images/Captura%20de%20pantalla_20260228_110840.png)
+
+El grupo de modelos se puede ver [Aqui](https://huggingface.co/collections/jrodriiguezg/grape-models)
+
+### 3.5 Entrenamiento del Modelo router
+#### 3.5.1 Introduccion
+El modelo router es el encargado de decidir que modelo usar para cada peticion, por lo que debe tener una gran cantidad de informacion sobre todos los modelos. Por esta razon, su entrenamiento es diferente al de los otros modelos, ya que no se le pasa un datasheet,si no que recibe un archivo con posibles entradas que puede recibir del usuario y la salida que debe dar. Para entrenar se usa tambien usar un script de entrenamiento diferente, que se puede ver en el siguiente repositorio de [Github](https://github.com/OpenMacedonIA/grape-models-train-scripts).
+
+#### 3.5.2 El entrenamiento
+El script es el siguiente, podemos ver la lista de categorias que el modelo puede responder, la categoria "secure" es para una funcion futura que no esta implementada
+![alt text](images/Captura%20de%20pantalla_20260228_113602.png)
+
+La salida del log producida al entrenar, es igual que en los otros modelos, en este caso la diferencia es que es bastante mas rapido de entrenar
+![alt text](images/Captura%20de%20pantalla_20260228_114222.png)
+
+Al finalizar el entrenamiento, subimos el modelo a HuggingFace con los mismos pasos que otros modelos
+
 # ANEXO X: REFERENCIAS Y BIBLIOGRAFÍA
 
 ## 1. LIBRERÍAS Y SOFTWARE OPEN SOURCE
@@ -2212,7 +2491,7 @@ El proyecto OpenMacedonIA se construye sobre librerias codigo abierto.
 * **Fail2Ban**: Modulo de seguridad [Wiki](https://github.com/fail2ban/fail2ban/wiki)
 * **Piper TTS**: Sistema de síntesis de voz offline [GitHub](https://github.com/rhasspy/piper)
 - **Flask**: Framework web usado para el backend y la API [Web](https://flask.palletsprojects.com/)
-- - **OpenCV**: Biblioteca para visión artificial y detección de presencia [OpenCV](https://opencv.org/)
+-  **OpenCV**: Biblioteca para visión artificial y detección de presencia [OpenCV](https://opencv.org/)
 - 
 
 ## 2. DOCUMENTACION USADA 
@@ -2236,7 +2515,7 @@ El proyecto OpenMacedonIA se construye sobre librerias codigo abierto.
 
 Este documento recopila y define todos los términos técnicos y conceptos avanzados utilizados en la documentación del sistema OpenMacedonIA, abarcando administración de sistemas, DevOps, arquitectura de software e Inteligencia Artificial. (Me puedo haber dejado algo).
 
-> La fuente de estos terminos es principalmente la Wikipedia
+> La fuente de estos términos es principalmente la Wikipedia
 
 ## A
 
@@ -2486,6 +2765,7 @@ Módulo de seguridad del kernel de Linux que permite al administrador restringir
 ### Artifact (Artefacto)
 
 En el contexto de CI/CD (GitHub Actions), se refiere a los archivos generados por un paso del pipeline (ej. binarios compilados, logs de test) que se guardan para ser usados en pasos posteriores o para su descarga.
+
 
 
 
